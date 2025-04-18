@@ -28,7 +28,7 @@
                         <p id="item_9"></p>
                     </div>
                 </div>
-                <button>Check</button>
+                <button onclick="check()">Check</button>
             </div>
             <div class="items-box">
                 <button onclick="selecionarItemCobblestone()"><img src="./assets/images/Cobblestone.png"></button>
@@ -41,7 +41,12 @@
                 <button onclick="selecionarItemRedstone()"><img src="./assets/images/Redstone.png"></button>
                 <button onclick="selecionarItemVazio()"><img src="./assets/images/Vazio.png"></button>
             </div>
+
+            <h1 class="titulo">Tentativas:</h1>
+            <div id="div_tentativa">
+            </div>
         </div>
+
 
     </section>
 </body>
@@ -49,6 +54,8 @@
 <script>
     let itemPos = 0;
     let item1, item2, item3, item4, item5, item6, item7, item8, item9;
+    let contagem = 1;
+    let status = 'jogando';
 
     // Atualizar item que está
     atualizarDisplay();
@@ -76,9 +83,91 @@
 
     // Check Resposta
     function check(){
-        if(item1 == 'Cobblestone'){
-            
+        const corErradoCraft = '#ec7c7c';
+        const corCertoCraft = '#81e9b0';
+        let corretoFrase = '';
+        let qtdeCorreto = 0;
+
+        if(status == 'fim'){
+            return;
         }
+        
+        if(item1 != 'cobblestone'){
+            item_1.style.backgroundColor = corErradoCraft;
+        } else{
+            item_1.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item2 != 'cobblestone'){
+            item_2.style.backgroundColor = corErradoCraft;
+        } else{
+            item_2.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item3 != 'cobblestone'){
+            item_3.style.backgroundColor = corErradoCraft;
+        } else{
+            item_3.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item4 != null){
+            item_4.style.backgroundColor = corErradoCraft;
+        } else{
+            item_4.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item5 != 'stick'){
+            item_5.style.backgroundColor = corErradoCraft;
+        } else{
+            item_5.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item6 != null){
+            item_6.style.backgroundColor = corErradoCraft;
+        } else{
+            item_6.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item7 != null){
+            item_7.style.backgroundColor = corErradoCraft;
+        } else{
+            item_7.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item8 != 'stick'){
+            item_8.style.backgroundColor = corErradoCraft;
+        } else{
+            item_8.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        if(item9 != null){
+            item_9.style.backgroundColor = corErradoCraft;
+        } else{
+            item_9.style.backgroundColor = corCertoCraft;
+            qtdeCorreto++;
+        }
+        
+        if(qtdeCorreto == 9){
+            corretoFrase = `<b>Crafting Correto!</b>`
+        }
+
+        div_tentativa.innerHTML += `
+        <div class='tentativa'>
+            <h2>Tentativa ${contagem}:</h2>
+            <p>Corretos: ${qtdeCorreto}</p>
+            <p>Incorretos: ${9-qtdeCorreto}</p>
+            ${corretoFrase}
+        </div>
+        `;
+        if(contagem == 5 || qtdeCorreto == 9){
+            div_tentativa.innerHTML += `
+            <div class='tentativa'>
+                <h2>Jogo Finalizado!</h2>
+            </div>
+            `;
+            status = 'fim';
+        }
+        contagem++;
     }
 
 
@@ -114,25 +203,39 @@
 
     // EXIBIR NO DISPLAY e GUARDAR VALOR de CADA ITEM
     function selecionarItemCobblestone(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Cobblestone.png';
+        let item = 'cobblestone'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -143,25 +246,39 @@
         atualizarDisplay();
     }
     function selecionarItemStick(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Stick.png';
+        let item = 'stick'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -172,25 +289,39 @@
         atualizarDisplay();
     }
     function selecionarItemIron(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Iron.png';
+        let item = 'iron'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -201,25 +332,39 @@
         atualizarDisplay();
     }
     function selecionarItemDiamond(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Diamond.png';
+        let item = 'diamond'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -230,25 +375,39 @@
         atualizarDisplay();
     }
     function selecionarItemGold(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Gold.png';
+        let item = 'gold'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -259,25 +418,39 @@
         atualizarDisplay();
     }
     function selecionarItemCoal(){
+        if(status == 'fim'){
+            return;
+        }
+        
         let itemImg = './assets/images/Coal.png';
+        let item = 'coal'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -288,25 +461,39 @@
         atualizarDisplay();
     }
     function selecionarItemPlanks(){
+        if(status == 'fim'){
+            return;
+        }
+
         let itemImg = './assets/images/Oak_Planks.png';
+        let item = 'planks'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -317,25 +504,39 @@
         atualizarDisplay();
     }
     function selecionarItemRedstone(){
+        if(status == 'fim'){
+            return;
+        }
+        
         let itemImg = './assets/images/Redstone.png';
+        let item = 'redstone'
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
@@ -346,25 +547,39 @@
         atualizarDisplay();
     }
     function selecionarItemVazio(){
+        if(status == 'fim'){
+            return;
+        }
+        
         let itemImg = './assets/images/Vazio.png';
+        let item = null
         if(itemPos == 0){
             item_1.innerHTML = `<img src='${itemImg}'>`
+            item1 = item;
         } else if(itemPos == 1){
             item_2.innerHTML = `<img src='${itemImg}'>`
+            item2 = item;
         }else if(itemPos == 2){
             item_3.innerHTML = `<img src='${itemImg}'>`
+            item3 = item;
         }else if(itemPos == 3){
             item_4.innerHTML = `<img src='${itemImg}'>`
+            item4 = item;
         }if(itemPos == 4){
             item_5.innerHTML = `<img src='${itemImg}'>`
+            item5 = item;
         }if(itemPos == 5){
             item_6.innerHTML = `<img src='${itemImg}'>`
+            item6 = item;
         }if(itemPos == 6){
             item_7.innerHTML = `<img src='${itemImg}'>`
+            item7 = item;
         }if(itemPos == 7){
             item_8.innerHTML = `<img src='${itemImg}'>`
+            item8 = item;
         }else if(itemPos == 8){
             item_9.innerHTML = `<img src='${itemImg}'>`
+            item9 = item;
         }
 
         if(itemPos < 0 || itemPos > 7){
