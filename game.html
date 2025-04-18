@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game | Minecave</title>
+    <link rel="stylesheet" href="./assets/css/styleGame.css">
+</head>
+<body>
+    <section class="sessao-crafting-game">
+        <div class="container">
+            <div class="crafting">
+                <h1 class="titulo">Crafting Game</h1>
+                <div class="display-craft" id="itemDisplay">
+                    <div class="row">
+                        <p id="item_1"></p>
+                        <p id="item_2"></p>
+                        <p id="item_3"></p>
+                    </div>
+                    <div class="row">
+                        <p id="item_4"></p>
+                        <p id="item_5"></p>
+                        <p id="item_6"></p>
+                    </div>
+                    <div class="row">
+                        <p id="item_7"></p>
+                        <p id="item_8"></p>
+                        <p id="item_9"></p>
+                    </div>
+                </div>
+                <button>Check</button>
+            </div>
+            <div class="items-box">
+                <button onclick="selecionarItemCobblestone()"><img src="./assets/images/Cobblestone.png"></button>
+                <button onclick="selecionarItemStick()"><img src="./assets/images/Stick.png"></button>
+                <button onclick="selecionarItemIron()"><img src="./assets/images/Iron.png"></button>
+                <button onclick="selecionarItemDiamond()"><img src="./assets/images/Diamond.png"></button>
+                <button onclick="selecionarItemGold()"><img src="./assets/images/Gold.png"></button>
+                <button onclick="selecionarItemCoal()"><img src="./assets/images/Coal.png"></button>
+                <button onclick="selecionarItemPlanks()"><img src="./assets/images/Oak_Planks.png"></button>
+                <button onclick="selecionarItemRedstone()"><img src="./assets/images/Redstone.png"></button>
+                <button onclick="selecionarItemVazio()"><img src="./assets/images/Vazio.png"></button>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script>
+    let itemPos = 0;
+    let item1, item2, item3, item4, item5, item6, item7, item8, item9;
+
+    // Atualizar item que está
+    atualizarDisplay();
+    function atualizarDisplay(){
+        if(itemPos == 0 || itemPos == 9){
+            item_1.innerHTML += `<span class='item-selected'></span>`
+        } else if(itemPos == 1){
+            item_2.innerHTML += `<span class='item-selected'></span>`
+        }else if(itemPos == 2){
+            item_3.innerHTML += `<span class='item-selected'></span>`
+        }else if(itemPos == 3){
+            item_4.innerHTML += `<span class='item-selected'></span>`
+        }if(itemPos == 4){
+            item_5.innerHTML += `<span class='item-selected'></span>`
+        }if(itemPos == 5){
+            item_6.innerHTML += `<span class='item-selected'></span>`
+        }if(itemPos == 6){
+            item_7.innerHTML += `<span class='item-selected'></span>`
+        }if(itemPos == 7){
+            item_8.innerHTML += `<span class='item-selected'></span>`
+        }else if(itemPos == 8){
+            item_9.innerHTML += `<span class='item-selected'></span>`
+        }
+    }
+
+    // Check Resposta
+    function check(){
+        if(item1 == 'Cobblestone'){
+            
+        }
+    }
+
+
+    // FUNCAO BASE
+    // function selecionarItem(){
+    //     let itemImg = './assets/images/Redstone.png';
+    //     if(itemPos == 0){
+    //         item_1.innerHTML = `<img src='${itemImg}'>`
+    //     } else if(itemPos == 1){
+    //         item_2.innerHTML = `<img src='${itemImg}'>`
+    //     }else if(itemPos == 2){
+    //         item_3.innerHTML = `<img src='${itemImg}'>`
+    //     }else if(itemPos == 3){
+    //         item_4.innerHTML = `<img src='${itemImg}'>`
+    //     }if(itemPos == 4){
+    //         item_5.innerHTML = `<img src='${itemImg}'>`
+    //     }if(itemPos == 5){
+    //         item_6.innerHTML = `<img src='${itemImg}'>`
+    //     }if(itemPos == 6){
+    //         item_7.innerHTML = `<img src='${itemImg}'>`
+    //     }if(itemPos == 7){
+    //         item_8.innerHTML = `<img src='${itemImg}'>`
+    //     }else if(itemPos == 8){
+    //         item_9.innerHTML = `<img src='${itemImg}'>`
+    //     }
+
+    //     if(itemPos < 0 && itemPos > 8){
+    //         itemPos = 0;
+    //     } else{
+    //         itemPos++;
+    //     }
+    // }
+
+    // EXIBIR NO DISPLAY e GUARDAR VALOR de CADA ITEM
+    function selecionarItemCobblestone(){
+        let itemImg = './assets/images/Cobblestone.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemStick(){
+        let itemImg = './assets/images/Stick.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemIron(){
+        let itemImg = './assets/images/Iron.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemDiamond(){
+        let itemImg = './assets/images/Diamond.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemGold(){
+        let itemImg = './assets/images/Gold.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemCoal(){
+        let itemImg = './assets/images/Coal.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemPlanks(){
+        let itemImg = './assets/images/Oak_Planks.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemRedstone(){
+        let itemImg = './assets/images/Redstone.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    function selecionarItemVazio(){
+        let itemImg = './assets/images/Vazio.png';
+        if(itemPos == 0){
+            item_1.innerHTML = `<img src='${itemImg}'>`
+        } else if(itemPos == 1){
+            item_2.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 2){
+            item_3.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 3){
+            item_4.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 4){
+            item_5.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 5){
+            item_6.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 6){
+            item_7.innerHTML = `<img src='${itemImg}'>`
+        }if(itemPos == 7){
+            item_8.innerHTML = `<img src='${itemImg}'>`
+        }else if(itemPos == 8){
+            item_9.innerHTML = `<img src='${itemImg}'>`
+        }
+
+        if(itemPos < 0 || itemPos > 7){
+            itemPos = 0;
+        } else{
+            itemPos++;
+        }
+        atualizarDisplay();
+    }
+    
+</script>
+</html>

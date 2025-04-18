@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../fonts/minecraft.otf') format('opentype');
+}
+
+body{
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+}
+section{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sessao-crafting-game{
+    width: 100%;
+}
+.sessao-crafting-game .container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 80%;
+}
+.sessao-crafting-game .crafting{
+    background-color: #c6c6c6;
+    padding: 24px;
+    padding-bottom: 12px;
+    border-radius: 4px;
+    width: fit-content;
+}
+.sessao-crafting-game .titulo{
+    font-family: 'Minecraft';
+    color: #5f5d5d;
+    margin-top: 0;
+}
+.sessao-crafting-game .display-craft{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+}
+.sessao-crafting-game .display-craft .row{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.sessao-crafting-game .display-craft .row p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #8b8b8b;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    border-left: 4px solid #373737;
+    border-top: 4px solid #373737;
+    border-right: 4px solid #FFF;
+    border-bottom: 4px solid #FFF;
+}
+.sessao-crafting-game .display-craft .row p .item-selected{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.473);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.sessao-crafting-game .display-craft .row p img{
+    z-index: 1;
+    width: 100%;
+}
+.sessao-crafting-game button{
+    width: 100%;
+    padding: 4px;
+    font-family: 'Minecraft';
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.sessao-crafting-game .items-box{
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 120px));
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #c6c6c6;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 4px;
+}
+.sessao-crafting-game .items-box button{
+    flex: 1;
+    border-left: 4px solid #373737;
+    border-top: 4px solid #373737;
+    border-right: 4px solid #FFF;
+    border-bottom: 4px solid #FFF;
+    width: 100%;
+    cursor: pointer;
+}
+.sessao-crafting-game .items-box button:hover{
+    background-color: #a8a4a4;
+}
+
+.sessao-crafting-game .items-box button img{
+    width: 100%;
+}
