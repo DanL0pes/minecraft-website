@@ -90,8 +90,8 @@ section{
 
 .sessao-crafting-game .items-box{
     display: grid;
-    max-width: 1200px;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 120px));
+    max-width: 1000px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 100px));
     align-items: center;
     justify-content: center;
     width: 100%;
