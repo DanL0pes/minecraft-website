@@ -19,6 +19,10 @@ nav{
     font-family: 'Questrial';
     z-index: 1000;
 }
+nav.transparent{
+    background: transparent;
+}
+
 nav .container{
     justify-content: space-between;
 }
