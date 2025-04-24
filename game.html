@@ -72,6 +72,11 @@
     // Atualizar item que está
     atualizarDisplay();
     function atualizarDisplay(){
+        const spanItem = document.querySelectorAll(".item-selected")
+        spanItem.forEach((span) => {
+            span.remove();
+        })
+
         if(itemPos == 0 || itemPos == 9){
             item_1.innerHTML += `<span class='item-selected'></span>`
         } else if(itemPos == 1){
