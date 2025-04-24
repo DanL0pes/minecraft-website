@@ -5,9 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body{
     margin: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .container{
     display: flex;
@@ -15,17 +12,19 @@ body{
 section{
     min-height: 100vh;
     display: flex;
+}
+.sessao-crafting-game{
+    background-image: url('../images/dirt_background.webp');
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.sessao-crafting-game{
-    width: 100%;
 }
 .sessao-crafting-game .container{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 124px;
     gap: 12px;
     width: 80%;
 }
@@ -59,8 +58,8 @@ section{
     justify-content: center;
     position: relative;
     background-color: #8b8b8b;
-    width: 100px;
-    height: 100px;
+    width: 62px;
+    height: 62px;
     margin: 0;
     border-left: 4px solid #373737;
     border-top: 4px solid #373737;
@@ -90,8 +89,8 @@ section{
 
 .sessao-crafting-game .items-box{
     display: grid;
-    max-width: 1000px;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 100px));
+    max-width: 920px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 90px));
     align-items: center;
     justify-content: center;
     width: 100%;
