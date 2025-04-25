@@ -25,19 +25,19 @@
                 <h1 class="titulo">Crafting Game</h1>
                 <div class="display-craft" id="itemDisplay">
                     <div class="row">
-                        <p id="item_1"></p>
-                        <p id="item_2"></p>
-                        <p id="item_3"></p>
+                        <p class="item_frame" id="item_1"></p>
+                        <p class="item_frame" id="item_2"></p>
+                        <p class="item_frame" id="item_3"></p>
                     </div>
                     <div class="row">
-                        <p id="item_4"></p>
-                        <p id="item_5"></p>
-                        <p id="item_6"></p>
+                        <p class="item_frame" id="item_4"></p>
+                        <p class="item_frame" id="item_5"></p>
+                        <p class="item_frame" id="item_6"></p>
                     </div>
                     <div class="row">
-                        <p id="item_7"></p>
-                        <p id="item_8"></p>
-                        <p id="item_9"></p>
+                        <p class="item_frame" id="item_7"></p>
+                        <p class="item_frame" id="item_8"></p>
+                        <p class="item_frame" id="item_9"></p>
                     </div>
                 </div>
                 <button onclick="check()">Check</button>
@@ -64,6 +64,7 @@
 </body>
 
 <script>
+    const itemFrames = document.querySelectorAll(".item_frame");
     let itemPos = 0;
     let item1, item2, item3, item4, item5, item6, item7, item8, item9;
     let contagem = 1;
@@ -72,30 +73,32 @@
     // Atualizar item que está
     atualizarDisplay();
     function atualizarDisplay(){
-        const spanItem = document.querySelectorAll(".item-selected")
+        const spanItem = document.querySelectorAll(".item-selected");
         spanItem.forEach((span) => {
             span.remove();
-        })
+        });
 
-        if(itemPos == 0 || itemPos == 9){
-            item_1.innerHTML += `<span class='item-selected'></span>`
-        } else if(itemPos == 1){
-            item_2.innerHTML += `<span class='item-selected'></span>`
-        }else if(itemPos == 2){
-            item_3.innerHTML += `<span class='item-selected'></span>`
-        }else if(itemPos == 3){
-            item_4.innerHTML += `<span class='item-selected'></span>`
-        }if(itemPos == 4){
-            item_5.innerHTML += `<span class='item-selected'></span>`
-        }if(itemPos == 5){
-            item_6.innerHTML += `<span class='item-selected'></span>`
-        }if(itemPos == 6){
-            item_7.innerHTML += `<span class='item-selected'></span>`
-        }if(itemPos == 7){
-            item_8.innerHTML += `<span class='item-selected'></span>`
-        }else if(itemPos == 8){
-            item_9.innerHTML += `<span class='item-selected'></span>`
-        }
+        itemFrames[itemPos].innerHTML += `<span class='item-selected'></span>`; 
+        
+        // if(itemPos == 0 || itemPos == 9){
+        //     item_1.innerHTML += `<span class='item-selected'></span>`
+        // } else if(itemPos == 1){
+        //     item_2.innerHTML += `<span class='item-selected'></span>`
+        // }else if(itemPos == 2){
+        //     item_3.innerHTML += `<span class='item-selected'></span>`
+        // }else if(itemPos == 3){
+        //     item_4.innerHTML += `<span class='item-selected'></span>`
+        // }if(itemPos == 4){
+        //     item_5.innerHTML += `<span class='item-selected'></span>`
+        // }if(itemPos == 5){
+        //     item_6.innerHTML += `<span class='item-selected'></span>`
+        // }if(itemPos == 6){
+        //     item_7.innerHTML += `<span class='item-selected'></span>`
+        // }if(itemPos == 7){
+        //     item_8.innerHTML += `<span class='item-selected'></span>`
+        // }else if(itemPos == 8){
+        //     item_9.innerHTML += `<span class='item-selected'></span>`
+        // }
     }
 
     // Check Resposta
@@ -228,42 +231,50 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Cobblestone.png';
-        let item = 'cobblestone'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'cobblestone';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
+       
+        // FORMA DE APRESENTAR VIA IF ELSE
+        // if(itemPos == 0){
+        //     item_1.innerHTML = `<img src='${itemImg}'>`
+        //     item1 = item;
+        // } else if(itemPos == 1){
+        //     item_2.innerHTML = `<img src='${itemImg}'>`
+        //     item2 = item;
+        // }else if(itemPos == 2){
+        //     item_3.innerHTML = `<img src='${itemImg}'>`
+        //     item3 = item;
+        // }else if(itemPos == 3){
+        //     item_4.innerHTML = `<img src='${itemImg}'>`
+        //     item4 = item;
+        // }if(itemPos == 4){
+        //     item_5.innerHTML = `<img src='${itemImg}'>`
+        //     item5 = item;
+        // }if(itemPos == 5){
+        //     item_6.innerHTML = `<img src='${itemImg}'>`
+        //     item6 = item;
+        // }if(itemPos == 6){
+        //     item_7.innerHTML = `<img src='${itemImg}'>`
+        //     item7 = item;
+        // }if(itemPos == 7){
+        //     item_8.innerHTML = `<img src='${itemImg}'>`
+        //     item8 = item;
+        // }else if(itemPos == 8){
+        //     item_9.innerHTML = `<img src='${itemImg}'>`
+        //     item9 = item;
+        // }
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemStick(){
@@ -271,42 +282,20 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Stick.png';
-        let item = 'stick'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'stick';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemIron(){
@@ -314,42 +303,20 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Iron.png';
-        let item = 'iron'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
-
+        let item = 'iron';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
+        
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemDiamond(){
@@ -357,42 +324,20 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Diamond.png';
-        let item = 'diamond'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'diamond';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemGold(){
@@ -400,42 +345,19 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Gold.png';
-        let item = 'gold'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'gold';
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemCoal(){
@@ -443,42 +365,20 @@
             return;
         }
         
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Coal.png';
-        let item = 'coal'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'coal';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemPlanks(){
@@ -486,42 +386,20 @@
             return;
         }
 
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Oak_Planks.png';
-        let item = 'planks'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'planks';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemRedstone(){
@@ -529,42 +407,20 @@
             return;
         }
         
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Redstone.png';
-        let item = 'redstone'
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = 'redstone';
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     function selecionarItemVazio(){
@@ -572,42 +428,20 @@
             return;
         }
         
+        // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Vazio.png';
-        let item = null
-        if(itemPos == 0){
-            item_1.innerHTML = `<img src='${itemImg}'>`
-            item1 = item;
-        } else if(itemPos == 1){
-            item_2.innerHTML = `<img src='${itemImg}'>`
-            item2 = item;
-        }else if(itemPos == 2){
-            item_3.innerHTML = `<img src='${itemImg}'>`
-            item3 = item;
-        }else if(itemPos == 3){
-            item_4.innerHTML = `<img src='${itemImg}'>`
-            item4 = item;
-        }if(itemPos == 4){
-            item_5.innerHTML = `<img src='${itemImg}'>`
-            item5 = item;
-        }if(itemPos == 5){
-            item_6.innerHTML = `<img src='${itemImg}'>`
-            item6 = item;
-        }if(itemPos == 6){
-            item_7.innerHTML = `<img src='${itemImg}'>`
-            item7 = item;
-        }if(itemPos == 7){
-            item_8.innerHTML = `<img src='${itemImg}'>`
-            item8 = item;
-        }else if(itemPos == 8){
-            item_9.innerHTML = `<img src='${itemImg}'>`
-            item9 = item;
-        }
+        let item = null;
+        // ATRIBUINDO AO DISPLAY
+        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
+        // INCREMENTANDO OU RESETANDO POSIÇÃO
         if(itemPos < 0 || itemPos > 7){
             itemPos = 0;
         } else{
             itemPos++;
         }
+
+        // ATUALIZANDO DISPLAY
         atualizarDisplay();
     }
     
