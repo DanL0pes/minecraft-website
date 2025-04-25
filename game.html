@@ -21,26 +21,34 @@
     </nav>
     <section class="sessao-crafting-game">
         <div class="container">
-            <div class="crafting">
-                <h1 class="titulo">Crafting Game</h1>
-                <div class="display-craft" id="itemDisplay">
-                    <div class="row">
-                        <p class="item_frame" id="item_1"></p>
-                        <p class="item_frame" id="item_2"></p>
-                        <p class="item_frame" id="item_3"></p>
-                    </div>
-                    <div class="row">
-                        <p class="item_frame" id="item_4"></p>
-                        <p class="item_frame" id="item_5"></p>
-                        <p class="item_frame" id="item_6"></p>
-                    </div>
-                    <div class="row">
-                        <p class="item_frame" id="item_7"></p>
-                        <p class="item_frame" id="item_8"></p>
-                        <p class="item_frame" id="item_9"></p>
+            <div class="game-display">
+                <div class="crafting">
+                    <div class="game">
+                        <h1 class="titulo">Crafting Game</h1>
+                        <div class="display-craft" id="itemDisplay">
+                            <div class="row">
+                                <p class="item_frame" id="item_1"></p>
+                                <p class="item_frame" id="item_2"></p>
+                                <p class="item_frame" id="item_3"></p>
+                            </div>
+                            <div class="row">
+                                <p class="item_frame" id="item_4"></p>
+                                <p class="item_frame" id="item_5"></p>
+                                <p class="item_frame" id="item_6"></p>
+                            </div>
+                            <div class="row">
+                                <p class="item_frame" id="item_7"></p>
+                                <p class="item_frame" id="item_8"></p>
+                                <p class="item_frame" id="item_9"></p>
+                            </div>
+                        </div>
+                        <button onclick="check()">Check</button>
                     </div>
                 </div>
-                <button onclick="check()">Check</button>
+
+                <div class="tentativas">
+                    <div id="div_tentativa"></div>
+                </div>
             </div>
             <div class="items-box">
                 <button onclick="selecionarItemCobblestone()"><img src="./assets/images/Cobblestone.png"></button>
@@ -54,9 +62,6 @@
                 <button onclick="selecionarItemVazio()"><img src="./assets/images/Vazio.png"></button>
             </div>
 
-            <h1 class="titulo">Tentativas:</h1>
-            <div id="div_tentativa">
-            </div>
         </div>
 
 
@@ -66,7 +71,7 @@
 <script>
     const itemFrames = document.querySelectorAll(".item_frame");
     let itemPos = 0;
-    let item1, item2, item3, item4, item5, item6, item7, item8, item9;
+    const items = []
     let contagem = 1;
     let status = 'jogando';
 
@@ -103,6 +108,10 @@
 
     // Check Resposta
     function check(){
+        if(contagem == 1){
+            div_tentativa.style.display = "flex";
+        }
+
         const corErradoCraft = '#ec7c7c';
         const corCertoCraft = '#81e9b0';
         let corretoFrase = '';
@@ -112,55 +121,55 @@
             return;
         }
         
-        if(item1 != 'cobblestone'){
+        if(items[0] != 'cobblestone'){
             item_1.style.backgroundColor = corErradoCraft;
         } else{
             item_1.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item2 != 'cobblestone'){
+        if(items[1] != 'cobblestone'){
             item_2.style.backgroundColor = corErradoCraft;
         } else{
             item_2.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item3 != 'cobblestone'){
+        if(items[2] != 'cobblestone'){
             item_3.style.backgroundColor = corErradoCraft;
         } else{
             item_3.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item4 != null){
+        if(items[3] != null){
             item_4.style.backgroundColor = corErradoCraft;
         } else{
             item_4.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item5 != 'stick'){
+        if(items[4] != 'stick'){
             item_5.style.backgroundColor = corErradoCraft;
         } else{
             item_5.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item6 != null){
+        if(items[5] != null){
             item_6.style.backgroundColor = corErradoCraft;
         } else{
             item_6.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item7 != null){
+        if(items[6] != null){
             item_7.style.backgroundColor = corErradoCraft;
         } else{
             item_7.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item8 != 'stick'){
+        if(items[7] != 'stick'){
             item_8.style.backgroundColor = corErradoCraft;
         } else{
             item_8.style.backgroundColor = corCertoCraft;
             qtdeCorreto++;
         }
-        if(item9 != null){
+        if(items[8] != null){
             item_9.style.backgroundColor = corErradoCraft;
         } else{
             item_9.style.backgroundColor = corCertoCraft;
@@ -173,7 +182,7 @@
 
         div_tentativa.innerHTML += `
         <div class='tentativa'>
-            <h2>Tentativa ${contagem}:</h2>
+            <h3>Tentativa ${contagem}:</h3>
             <p>Corretos: ${qtdeCorreto}</p>
             <p>Incorretos: ${9-qtdeCorreto}</p>
             ${corretoFrase}
@@ -233,7 +242,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Cobblestone.png';
-        let item = 'cobblestone';
+        items[itemPos] = 'cobblestone';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
        
@@ -284,7 +293,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Stick.png';
-        let item = 'stick';
+        items[itemPos] = 'stick';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
@@ -305,7 +314,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Iron.png';
-        let item = 'iron';
+        items[itemPos] = 'iron';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
         
@@ -326,7 +335,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Diamond.png';
-        let item = 'diamond';
+        items[itemPos] = 'diamond';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
@@ -347,7 +356,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Gold.png';
-        let item = 'gold';
+        items[itemPos] = 'gold';
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
         // INCREMENTANDO OU RESETANDO POSIÇÃO
@@ -367,7 +376,7 @@
         
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Coal.png';
-        let item = 'coal';
+        items[itemPos] = 'coal';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
@@ -388,7 +397,7 @@
 
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Oak_Planks.png';
-        let item = 'planks';
+        items[itemPos] = 'planks';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
@@ -409,7 +418,7 @@
         
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Redstone.png';
-        let item = 'redstone';
+        items[itemPos] = 'redstone';
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
@@ -430,7 +439,7 @@
         
         // SETANDO IMAGEM E NOME DO ITEM
         let itemImg = './assets/images/Vazio.png';
-        let item = null;
+        items[itemPos] = null;
         // ATRIBUINDO AO DISPLAY
         itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
 
