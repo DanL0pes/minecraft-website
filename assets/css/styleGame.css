@@ -24,9 +24,14 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 102px;
+    padding-top: 96px;
     gap: 12px;
     width: 80%;
+}
+.sessao-crafting-game .game-display{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 .sessao-crafting-game .crafting{
     background-color: #c6c6c6;
@@ -45,6 +50,9 @@ section{
     flex-direction: column;
     gap: 4px;
     padding: 8px;
+}
+.sessao-crafting-game .display-craft h2{
+    margin-bottom: 2px;
 }
 .sessao-crafting-game .display-craft .row{
     display: flex;
@@ -117,10 +125,14 @@ section{
 }
 
 .sessao-crafting-game #div_tentativa{
-    display: flex;
+    display: none;
+    flex-direction: column;
     gap: 12px;
     background: #c6c6c6;
     padding: 12px;
+    max-height: 328px;
+    overflow-y: auto;
+    border-radius: 4px;
 }
 .sessao-crafting-game #div_tentativa .tentativa{
     padding: 12px;
@@ -129,5 +141,11 @@ section{
     border-top: 4px solid #373737;
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
-    font-family: 'Arial';
+    font-family: 'Minecraft';
+}
+.sessao-crafting-game #div_tentativa .tentativa h3{
+    margin: 0;
+}
+.sessao-crafting-game #div_tentativa .tentativa p{
+    margin: 0;
 }
