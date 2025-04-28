@@ -1,0 +1,18 @@
+.sessao-heroi{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.sessao-heroi .container{
+    width: 100%;
+}
+.sessao-heroi .lado{
+    flex:1;
+    display: flex;
+    align-items: center;
+}
+.sessao-heroi .lado img{
+    width: 65%;
+}

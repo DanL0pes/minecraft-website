@@ -44,6 +44,7 @@
                         </div>
                         <button onclick="check()">Check</button>
                     </div>
+                    <div id="img_res"></div>
                 </div>
 
                 <div class="tentativas">
@@ -178,6 +179,7 @@
         
         if(qtdeCorreto == 9){
             corretoFrase = `<b>Crafting Correto!</b>`
+            img_res.style.backgroundColor = '#81e9b0';
         }
 
         div_tentativa.innerHTML += `
@@ -195,6 +197,9 @@
             </div>
             `;
             status = 'fim';
+            img_res.innerHTML = `
+            <img src="./assets/images/stone_pickaxe.webp">
+            `;
             return;
         }
         itemPos = 0;
