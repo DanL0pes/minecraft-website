@@ -109,21 +109,12 @@
     padding: 12px;
     border-radius: 4px;
 }
-.sessao-crafting-game .items-box button{
-    flex: 1;
+.sessao-crafting-game .items-box img{
+    width: 100%;
     border-left: 4px solid #373737;
     border-top: 4px solid #373737;
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
-    width: 100%;
-    cursor: pointer;
-}
-.sessao-crafting-game .items-box button:hover{
-    background-color: #a8a4a4;
-}
-
-.sessao-crafting-game .items-box button img{
-    width: 100%;
 }
 
 .sessao-crafting-game #div_tentativa{

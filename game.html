@@ -29,19 +29,36 @@
                         <h1 class="titulo">Crafting Game</h1>
                         <div class="display-craft" id="itemDisplay">
                             <div class="row">
-                                <p class="item_frame" id="item_1"></p>
-                                <p class="item_frame" id="item_2"></p>
-                                <p class="item_frame" id="item_3"></p>
+                                <p class="item_frame" id="item_1" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio"></p>
+                                <p class="item_frame" id="item_2" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
+                                <p class="item_frame" id="item_3" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
                             </div>
                             <div class="row">
-                                <p class="item_frame" id="item_4"></p>
-                                <p class="item_frame" id="item_5"></p>
-                                <p class="item_frame" id="item_6"></p>
+                                <p class="item_frame" id="item_4" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
+                                <p class="item_frame" id="item_5" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
+                                <p class="item_frame" id="item_6" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
                             </div>
                             <div class="row">
-                                <p class="item_frame" id="item_7"></p>
-                                <p class="item_frame" id="item_8"></p>
-                                <p class="item_frame" id="item_9"></p>
+                                <p class="item_frame" id="item_7" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
+                                <p class="item_frame" id="item_8" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
+                                <p class="item_frame" id="item_9" ondrop="drop(event)" ondragover="permitirDrop(event)">
+                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                </p>
                             </div>
                         </div>
                         <button onclick="check()">Check</button>
@@ -54,15 +71,16 @@
                 </div>
             </div>
             <div class="items-box">
-                <button onclick="selecionarItemCobblestone()"><img src="./assets/images/Cobblestone.png"></button>
-                <button onclick="selecionarItemStick()"><img src="./assets/images/Stick.png"></button>
-                <button onclick="selecionarItemIron()"><img src="./assets/images/Iron.png"></button>
-                <button onclick="selecionarItemDiamond()"><img src="./assets/images/Diamond.png"></button>
-                <button onclick="selecionarItemGold()"><img src="./assets/images/Gold.png"></button>
-                <button onclick="selecionarItemCoal()"><img src="./assets/images/Coal.png"></button>
-                <button onclick="selecionarItemPlanks()"><img src="./assets/images/Oak_Planks.png"></button>
-                <button onclick="selecionarItemRedstone()"><img src="./assets/images/Redstone.png"></button>
-                <button onclick="selecionarItemVazio()"><img src="./assets/images/Vazio.png"></button>
+                
+                <img src="./assets/images/Cobblestone.png" draggable="true" id="cobblestone" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Stick.png" draggable="true" id="stick" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Iron.png" draggable="true" id="iron" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Diamond.png" draggable="true" id="diamond" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Gold.png" draggable="true" id="gold" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Coal.png" draggable="true" id="coal" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Oak_Planks.png" draggable="true" id="oak_planks" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Redstone.png" draggable="true" id="redstone" ondragstart="inicioDrag(event)">
+                <img src="./assets/images/Vazio.png" draggable="true" id="vazio" ondragstart="inicioDrag(event)">
             </div>
 
         </div>
@@ -78,35 +96,18 @@
     let contagem = 1;
     let status = 'jogando';
 
-    // Atualizar item que está
-    atualizarDisplay();
-    function atualizarDisplay(){
-        const spanItem = document.querySelectorAll(".item-selected");
-        spanItem.forEach((span) => {
-            span.remove();
-        });
-
-        itemFrames[itemPos].innerHTML += `<span class='item-selected'></span>`; 
-        
-        // if(itemPos == 0 || itemPos == 9){
-        //     item_1.innerHTML += `<span class='item-selected'></span>`
-        // } else if(itemPos == 1){
-        //     item_2.innerHTML += `<span class='item-selected'></span>`
-        // }else if(itemPos == 2){
-        //     item_3.innerHTML += `<span class='item-selected'></span>`
-        // }else if(itemPos == 3){
-        //     item_4.innerHTML += `<span class='item-selected'></span>`
-        // }if(itemPos == 4){
-        //     item_5.innerHTML += `<span class='item-selected'></span>`
-        // }if(itemPos == 5){
-        //     item_6.innerHTML += `<span class='item-selected'></span>`
-        // }if(itemPos == 6){
-        //     item_7.innerHTML += `<span class='item-selected'></span>`
-        // }if(itemPos == 7){
-        //     item_8.innerHTML += `<span class='item-selected'></span>`
-        // }else if(itemPos == 8){
-        //     item_9.innerHTML += `<span class='item-selected'></span>`
-        // }
+    // Arrastar e Soltar Item
+    function inicioDrag(event) {
+        event.dataTransfer.setData("text", event.target.src);
+        this.style.opacity = 0;
+    }
+    function permitirDrop(event) {
+        event.preventDefault();
+    }
+    function drop(event){
+        event.preventDefault();
+        const target = event.target;
+        target.src = event.dataTransfer.getData("text");
     }
 
     // Check Resposta
@@ -209,257 +210,5 @@
         
         contagem++;
     }
-
-
-    // FUNCAO BASE
-    // function selecionarItem(){
-    //     let itemImg = './assets/images/Redstone.png';
-    //     if(itemPos == 0){
-    //         item_1.innerHTML = `<img src='${itemImg}'>`
-    //     } else if(itemPos == 1){
-    //         item_2.innerHTML = `<img src='${itemImg}'>`
-    //     }else if(itemPos == 2){
-    //         item_3.innerHTML = `<img src='${itemImg}'>`
-    //     }else if(itemPos == 3){
-    //         item_4.innerHTML = `<img src='${itemImg}'>`
-    //     }if(itemPos == 4){
-    //         item_5.innerHTML = `<img src='${itemImg}'>`
-    //     }if(itemPos == 5){
-    //         item_6.innerHTML = `<img src='${itemImg}'>`
-    //     }if(itemPos == 6){
-    //         item_7.innerHTML = `<img src='${itemImg}'>`
-    //     }if(itemPos == 7){
-    //         item_8.innerHTML = `<img src='${itemImg}'>`
-    //     }else if(itemPos == 8){
-    //         item_9.innerHTML = `<img src='${itemImg}'>`
-    //     }
-
-    //     if(itemPos < 0 && itemPos > 8){
-    //         itemPos = 0;
-    //     } else{
-    //         itemPos++;
-    //     }
-    // }
-
-    // EXIBIR NO DISPLAY e GUARDAR VALOR de CADA ITEM
-    function selecionarItemCobblestone(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Cobblestone.png';
-        items[itemPos] = 'cobblestone';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-       
-        // FORMA DE APRESENTAR VIA IF ELSE
-        // if(itemPos == 0){
-        //     item_1.innerHTML = `<img src='${itemImg}'>`
-        //     item1 = item;
-        // } else if(itemPos == 1){
-        //     item_2.innerHTML = `<img src='${itemImg}'>`
-        //     item2 = item;
-        // }else if(itemPos == 2){
-        //     item_3.innerHTML = `<img src='${itemImg}'>`
-        //     item3 = item;
-        // }else if(itemPos == 3){
-        //     item_4.innerHTML = `<img src='${itemImg}'>`
-        //     item4 = item;
-        // }if(itemPos == 4){
-        //     item_5.innerHTML = `<img src='${itemImg}'>`
-        //     item5 = item;
-        // }if(itemPos == 5){
-        //     item_6.innerHTML = `<img src='${itemImg}'>`
-        //     item6 = item;
-        // }if(itemPos == 6){
-        //     item_7.innerHTML = `<img src='${itemImg}'>`
-        //     item7 = item;
-        // }if(itemPos == 7){
-        //     item_8.innerHTML = `<img src='${itemImg}'>`
-        //     item8 = item;
-        // }else if(itemPos == 8){
-        //     item_9.innerHTML = `<img src='${itemImg}'>`
-        //     item9 = item;
-        // }
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemStick(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Stick.png';
-        items[itemPos] = 'stick';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemIron(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Iron.png';
-        items[itemPos] = 'iron';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-        
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemDiamond(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Diamond.png';
-        items[itemPos] = 'diamond';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemGold(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Gold.png';
-        items[itemPos] = 'gold';
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemCoal(){
-        if(status == 'fim'){
-            return;
-        }
-        
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Coal.png';
-        items[itemPos] = 'coal';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemPlanks(){
-        if(status == 'fim'){
-            return;
-        }
-
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Oak_Planks.png';
-        items[itemPos] = 'planks';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemRedstone(){
-        if(status == 'fim'){
-            return;
-        }
-        
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Redstone.png';
-        items[itemPos] = 'redstone';
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    function selecionarItemVazio(){
-        if(status == 'fim'){
-            return;
-        }
-        
-        // SETANDO IMAGEM E NOME DO ITEM
-        let itemImg = './assets/images/Vazio.png';
-        items[itemPos] = null;
-        // ATRIBUINDO AO DISPLAY
-        itemFrames[itemPos].innerHTML = `<img src='${itemImg}'>`;
-
-        // INCREMENTANDO OU RESETANDO POSIÇÃO
-        if(itemPos < 0 || itemPos > 7){
-            itemPos = 0;
-        } else{
-            itemPos++;
-        }
-
-        // ATUALIZANDO DISPLAY
-        atualizarDisplay();
-    }
-    
 </script>
 </html>
