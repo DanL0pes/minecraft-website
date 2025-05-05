@@ -30,34 +30,34 @@
                         <div class="display-craft" id="itemDisplay">
                             <div class="row">
                                 <p class="item_frame" id="item_1" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio"></p>
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)"></p>
                                 <p class="item_frame" id="item_2" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                                 <p class="item_frame" id="item_3" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                             </div>
                             <div class="row">
                                 <p class="item_frame" id="item_4" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                                 <p class="item_frame" id="item_5" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                                 <p class="item_frame" id="item_6" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                             </div>
                             <div class="row">
                                 <p class="item_frame" id="item_7" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                                 <p class="item_frame" id="item_8" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                                 <p class="item_frame" id="item_9" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" id="vazio">
+                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
                                 </p>
                             </div>
                         </div>
@@ -108,6 +108,12 @@
         event.preventDefault();
         const target = event.target;
         target.src = event.dataTransfer.getData("text");
+    }
+
+    // Limpar item no click
+    function limparItem(event){
+        const target = event.target;
+        target.src = './assets/images/Vazio.png';
     }
 
     // Check Resposta
