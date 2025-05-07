@@ -33,7 +33,6 @@
 2. Acesse a pasta do projeto:  
     ![Acessando pasta projeto](./screenshots/acessandoPastaProjeto.png)
 3. Acesse a pasta do public:  
-    Acesse a pasta public:  
     ![Acesse a pasta public](./screenshots/acessandoPastaPublic.png)
 4. Abra o Index.HTML:  
     ![Abrindo HTML](./screenshots/abrindoIndexHTML.png)
