@@ -28,11 +28,11 @@
     ```bash
     git clone https://github.com/seu-usuario/minecave.git
     ```
-2. Acesse a pasta do projeto:
+2. Acesse a pasta do projeto:  
     ![Acessando pasta projeto](./screenshots/acessandoPastaProjeto.png)
-3. Acesse a pasta do public:
-    Acesse a pasta public:
+3. Acesse a pasta do public:  
+    Acesse a pasta public:  
     ![Acesse a pasta public](./screenshots/acessandoPastaPublic.png)
-4. Abra o Index.HTML:
+4. Abra o Index.HTML:  
     ![Abrindo HTML](./screenshots/abrindoIndexHTML.png)
     > *Recomenda-se o uso de uma extensão como Live Server (VS Code) ou um servidor local para evitar problemas com recursos externos (ex: Chart.js).*
