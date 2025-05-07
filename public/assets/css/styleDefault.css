@@ -96,6 +96,8 @@ section{
         z-index: -1;
         position: absolute;
         top: 100vh;
+        left: 50%;
+        transform: translateX(-50%);
         flex-direction: column;
         display: flex;
         height: 97.5vh;
