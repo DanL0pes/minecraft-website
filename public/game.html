@@ -29,36 +29,19 @@
                         <h1 class="titulo">Crafting Game</h1>
                         <div class="display-craft" id="itemDisplay">
                             <div class="row">
-                                <p class="item_frame" id="item_1" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)"></p>
-                                <p class="item_frame" id="item_2" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
-                                <p class="item_frame" id="item_3" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
+                                    <p class="item_frame" id="item_1"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="0"></p>
+                                    <p class="item_frame" id="item_2"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="1"></p>
+                                    <p class="item_frame" id="item_3"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="2"></p>
                             </div>
                             <div class="row">
-                                <p class="item_frame" id="item_4" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
-                                <p class="item_frame" id="item_5" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
-                                <p class="item_frame" id="item_6" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
+                                    <p class="item_frame" id="item_4"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="3"></p>
+                                    <p class="item_frame" id="item_5"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="4"></p>
+                                    <p class="item_frame" id="item_6"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="5"></p>
                             </div>
                             <div class="row">
-                                <p class="item_frame" id="item_7" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
-                                <p class="item_frame" id="item_8" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
-                                <p class="item_frame" id="item_9" ondrop="drop(event)" ondragover="permitirDrop(event)">
-                                    <img src="./assets/images/Vazio.png" draggable="true" onclick="limparItem(event)">
-                                </p>
+                                    <p class="item_frame" id="item_7"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="6"></p>
+                                    <p class="item_frame" id="item_8"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="7"></p>
+                                    <p class="item_frame" id="item_9"><img src="./assets/images/Vazio.png" ondrop="drop(event)" ondragover="permitirDrop(event)" onclick="limparItem(event)" id="8"></p>
                             </div>
                         </div>
                         <button onclick="check()">Check</button>
@@ -98,8 +81,8 @@
 
     // Arrastar e Soltar Item
     function inicioDrag(event) {
-        event.dataTransfer.setData("text", event.target.src);
-        this.style.opacity = 0;
+        event.dataTransfer.setData("src", event.target.src);
+        event.dataTransfer.setData("item", event.target.id);
     }
     function permitirDrop(event) {
         event.preventDefault();
@@ -107,7 +90,8 @@
     function drop(event){
         event.preventDefault();
         const target = event.target;
-        target.src = event.dataTransfer.getData("text");
+        target.src = event.dataTransfer.getData("src");
+        items[target.id] = event.dataTransfer.getData("item");
     }
 
     // Limpar item no click

@@ -76,15 +76,6 @@
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
 }
-.sessao-crafting-game .display-craft .row p .item-selected{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.473);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
 .sessao-crafting-game .display-craft .row p img{
     z-index: 1;
     width: 100%;
