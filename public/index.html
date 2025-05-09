@@ -49,7 +49,28 @@
             Seu navegador não suporta o elemento <code>video</code>.
         </video>
         <div class="container">
-
+            <img src="./assets/images/minecraft-logo.svg" alt="Minecraft" class="logo-mine">
+            <div class="conteudo">
+                <div class="seletores">
+                    <div class="seletor" id="jogo_seletor" onclick="atualizarSeletor(event)">
+                        <img src="./assets/images/Diamond.png" alt="">
+                        <p>Jogo</p>
+                    </div>
+                    <div class="seletor" id="criador_seletor" onclick="atualizarSeletor(event)">
+                        <img src="./assets/images/Redstone.png" alt="">
+                        <p>Criador</p>
+                    </div>
+                    <div class="seletor" id="updates_seletor" onclick="atualizarSeletor(event)">
+                        <img src="./assets/images/Cobblestone.png" alt="">
+                        <p>Updates</p>
+                    </div>
+                </div>
+                <div class="main_seletores">
+                    <div class="conteudo_seletor" id="jogo_content">Jogo</div>
+                    <div class="conteudo_seletor" id="criador_content">Criador</div>
+                    <div class="conteudo_seletor" id="updates_content">Updates</div>
+                </div>
+            </div>
         </div>
         <img src="./assets/images/bottom-bg-sessao.png" alt="" class="bloco-baixo">
     </section>
@@ -59,10 +80,11 @@
             Seu navegador não suporta o elemento <code>video</code>.
         </video>
         <div class="container">
-
+            <h1>Oi</h1>
         </div>
     </section>
 </body>
 
 <script src="./assets/script/nav.js"></script>
+<script src="./assets/script/home.js"></script>
 </html>

@@ -60,9 +60,12 @@ nav .menu-icon{
     top: 38px;
     right: 32px;
     color: #FFF;
+    -webkit-text-stroke:  1px black;
 }
 nav img{
     width: 170px;
+    
+    filter: drop-shadow(-1px 0 black) drop-shadow(1px 0 black) drop-shadow(0 -1px black) drop-shadow(0 1px black);
 }
 nav .links{
     list-style: none;

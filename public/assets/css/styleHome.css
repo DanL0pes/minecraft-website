@@ -80,7 +80,10 @@
     background: transparent;
     position: relative;
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-size: clamp(0px, 100vw, 1080px);
+    background-repeat: repeat-x;
+    justify-content: center;
+    align-items: center;
 }
 .sessao-intro{
     background-image: url(../images/bg-sessao-intro.png);
@@ -103,6 +106,81 @@
     z-index: -1;
 }
 
+.sessao-intro .container{
+    z-index: 1;
+    background-color: #D9D9D9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    border-radius: 4px;
+    outline: 2px solid #000;
+    padding: 42px 24px;
+    height: 70dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.sessao-intro .container .logo-mine{
+    width: 30%;
+    min-width: 250px;
+    margin-bottom: 32px;
+}
+.sessao-intro .container .conteudo{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.sessao-intro .container .conteudo .seletores{
+    display: flex;
+    gap: 12px;
+    margin-inline: 12px;
+}
+.sessao-intro .container .conteudo .seletor{
+    display: flex;
+    align-items: center;
+    background-color: #8A8A8A;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    border-radius: 4px;
+    outline: 2px solid #000;
+    padding: 8px;
+}
+.sessao-intro .container .conteudo .seletor img{
+    width: 50px;
+    user-select: none;
+    pointer-events: none;
+}
+.sessao-intro .container .conteudo .seletor p{
+    width: 0px;
+    overflow: hidden;
+    transition: .3s;
+}
+.sessao-intro .container .conteudo .seletor.ativo{
+    background-color: #D9D9D9;
+    border: 4px solid;
+    border-color: #FFF #565656 transparent #FFF;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    outline: none;
+    box-shadow: 2px 0 #000, 0 -2px #000,-2px 0 #000;
+    z-index: 1;
+}
+.sessao-intro .container .conteudo .seletor.ativo p{
+    display: block;
+    width: 100%;
+    margin-left: 8px;
+}
+.sessao-intro .container .conteudo .main_seletores{
+    position: relative;
+    top: -6px;
+    flex: 1;
+    display: flex;
+    background-color: #D9D9D9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    border-radius: 4px;
+    outline: 2px solid #000;
+}
 
 @media (max-width: 630px) {
     .sessao-heroi .lado.texto{
