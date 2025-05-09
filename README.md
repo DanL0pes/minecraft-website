@@ -28,7 +28,7 @@
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/minecave.git
+    git clone https://github.com/danl0pes/minecave.git
     ```
 2. Acesse a pasta do projeto:  
     ![Acessando pasta projeto](./screenshots/acessandoPastaProjeto.png)
