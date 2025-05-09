@@ -76,7 +76,32 @@
   	border-color: #BDC6FF #59639A #59639A #BDC6FF;
 }
 
-
+.sessao-intro, .sessao-vantagens{
+    background: transparent;
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.sessao-intro{
+    background-image: url(../images/bg-sessao-intro.png);
+}
+.sessao-vantagens{
+    background-image: url(../images/bg-vantagens.png);
+}
+.sessao-intro .bloco-baixo, .sessao-vantagens .bloco-baixo{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.sessao-intro video, .sessao-vantagens video{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
 
 @media (max-width: 630px) {
