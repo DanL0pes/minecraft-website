@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styleDefault.css">
     <link rel="stylesheet" href="./assets/css/styleHome.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close,menu" />
-    <title>MineCave | Home</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close,menu" />
+    <title>Creeper's Guide | Home</title>
 </head>
+
 <body>
     <nav class="transparent">
         <div class="container">
@@ -32,11 +35,10 @@
         </video>
         <div class="container">
             <div class="lado texto">
-                <h1>
-                    Seja Bem-vindo a nossa <br>
-                </h1>
-                <p>Mine<span class="color">Cave</span></p>
-                <a href="#">Saiba mais</a>
+                <h2>Aprenda jogando no mundo do Minecraft!</h2>
+                <p>Descubra como o jogo pode ensinar lógica, criatividade, ciência e muito mais.</p>
+                <br>
+                <a href="#" class="btn-green">Saiba mais</a>
             </div>
             <div class="lado">
                 <img src="./assets/images/steve.webp">
@@ -52,7 +54,7 @@
             <img src="./assets/images/minecraft-logo.svg" alt="Minecraft" class="logo-mine">
             <div class="conteudo">
                 <div class="seletores">
-                    <div class="seletor" id="jogo_seletor" onclick="atualizarSeletor(event)">
+                    <div class="seletor ativo" id="jogo_seletor" onclick="atualizarSeletor(event)">
                         <img src="./assets/images/Diamond.png" alt="">
                         <p>Jogo</p>
                     </div>
@@ -66,7 +68,37 @@
                     </div>
                 </div>
                 <div class="main_seletores">
-                    <div class="conteudo_seletor" id="jogo_content">Jogo</div>
+                    <div class="conteudo_seletor" id="jogo_content">
+                        <div class="texto">
+                            <p><strong>Minecraft</strong> é um jogo de mundo aberto onde a criatividade não tem limites!
+                                Com visual em blocos e liberdade total de construção, ele permite que você crie desde
+                                casas simples até castelos gigantes, cidades inteiras ou até máquinas incríveis dentro
+                                do próprio jogo.</p>
+                            <!-- <ul>
+                                <li><strong>Desenvolva sua criatividade:</strong> Construa tudo o que imaginar! O
+                                    único limite é a sua imaginação.</li>
+                                <li><strong>Aprenda sobre eletrônica e lógica com Redstone:</strong> Crie portas
+                                    automáticas, armadilhas, mecanismos, elevadores e até calculadoras! Tudo usando
+                                    circuitos dentro do jogo.</li>
+                                <li><strong>Explore conhecimentos com mods:</strong> Com as modificações (mods), você
+                                    pode aprender <strong>química, física, programação, agricultura</strong> e muito
+                                    mais, de forma divertida e prática.</li>
+                                <li><strong>Trabalho em equipe e estratégia:</strong> Em servidores multiplayer, é
+                                    possível aprender a colaborar com amigos, dividir tarefas e criar projetos em grupo.
+                                </li>
+                                <li><strong>Minecraft: Education Edition:</strong> Versão usada em escolas e projetos
+                                    educacionais, onde o jogo é usado como ferramenta para ensinar conteúdos escolares
+                                    de um jeito envolvente e interativo.</li>
+                            </ul> -->
+
+                            <a href="#">Jogue Agora</a>
+                        </div>
+                        <div class="image">
+                            <video autoplay loop muted playsinline>
+                                <source src="./assets/videos/bg-home.mp4" type="video/mp4">
+                                Seu navegador não suporta o elemento <code>video</code>.
+                        </div>
+                    </div>
                     <div class="conteudo_seletor" id="criador_content">Criador</div>
                     <div class="conteudo_seletor" id="updates_content">Updates</div>
                 </div>
@@ -87,4 +119,5 @@
 
 <script src="./assets/script/nav.js"></script>
 <script src="./assets/script/home.js"></script>
+
 </html>

@@ -1,6 +1,8 @@
 seletores = document.querySelectorAll('.seletor');
 conteudoSeletores = document.querySelectorAll('.conteudo_seletor')
 
+conteudoSeletores[0].style.display = 'flex';
+
 function atualizarSeletor(event){
     seletores.forEach(seletor => {
         seletor.classList.remove('ativo');
