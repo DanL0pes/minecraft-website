@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styleDefault.css">
+    <link rel="stylesheet" href="./assets/css/styleLogin.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close,menu" />
+    <title>Creeper's Guide | Login</title>
+</head>
+
+<body>
+    <nav class="transparent">
+        <div class="container">
+            <a href="index.html">
+                <img src="./assets/images/logo.png" alt="MineCave">
+            </a>
+            <ul class="links" id="menu">
+                <li class="link"><a class="btn" href="#">Sobre</a></li>
+                <li class="link"><a class="btn" href="game.html">Craftgame</a></li>
+                <li class="link"><a class="btn" href="#">Curiosidades</a></li>
+                <li class="link"><a class="btn" href="#">Entrar</a></li>
+            </ul>
+            <span class="material-symbols-outlined menu-icon" onclick="abrirMenu(event)">
+                menu
+            </span>
+        </div>
+    </nav>
+    <section class="sessao-login">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="./assets/videos/bg-home.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento <code>video</code>.
+        </video>
+        <div class="container">
+            <h1 id="titulo_form">LOGIN</h1>
+            <div class="conteudo">
+                <div class="lado ativo" id="login">
+                    <div id="login_form" class="form">
+                        <p>Entre e sua conta para desbloquear o acesso a nossos cursos e forúm :)</p>
+                        <label for="ipt_email">Email:</label>
+                        <input type="text" id="ipt_email" placeholder="Digite seu email">
+                        <label for="ipt_senha">Senha:</label>
+                        <input type="password" id="ipt_senha" placeholder="Digite sua senha">
+                        <button class="btn-green pixel-border" onclick="entrar(ipt_email.value, ipt_senha.value)">Login</button>
+                    </div>
+                    <div id="possui_login" class="btn-mudar">
+                        <p>Já possui uma conta?</p>
+                        <button onclick="mudarFormulario('login')">Entrar</button>
+                    </div>
+                </div>
+                <div class="lado" id="cadastro">
+                    <div id="cadastro_form" class="form">
+                        <img src="./assets/images/craftingtable.webp" alt="" class="icone-perfil">
+                        <label for="ipt_nome">Nome:</label>
+                        <input type="text" id="ipt_nome" placeholder="Digite seu nome">
+                        <label for="ipt_email">Email:</label>
+                        <input type="text" id="ipt_email" placeholder="Digite seu email">
+                        <label for="ipt_senha">Senha:</label>
+                        <input type="password" id="ipt_senha" placeholder="Digite sua senha">
+                        <label for="ipt_senha_confirm">Confirmar Senha:</label>
+                        <input type="password" id="ipt_senha_cofirm" placeholder="Digite sua senha">
+                        <button class="btn-green pixel-border" onclick="entrar(ipt_email.value, ipt_senha.value)">Cadastrar</button>
+                    </div>
+                    <div id="nao_possui_login" class="btn-mudar">
+                        <p>Ainda não possui uma conta? Faça o cadastro :)</p>
+                        <button onclick="mudarFormulario('cadastro')">Cadastrar-se</button>
+                    </div>
+                </div>
+                <div id="cardErro"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="./assets/script/nav.js"></script>
+<script src="./assets/script/login.js"></script>
+</html>

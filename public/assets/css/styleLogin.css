@@ -1,0 +1,89 @@
+.sessao-login{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+}
+.sessao-login .container {
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+.sessao-login .video-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.sessao-login .container h1{
+    background-color: #7c7c7c;
+    margin: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    color: #242222;
+}
+.sessao-login .conteudo{
+    display: flex;
+    width: 100%;
+}
+.sessao-login .conteudo .lado{
+    flex: 1;
+    display: flex;
+}
+.sessao-login .conteudo .lado.ativo{
+    flex: 2;
+}
+.sessao-login .conteudo .lado .form{
+    flex: 1;
+    padding: 24px;
+    background: #d9d9d9;
+    display: none;
+    flex-direction: column;
+}
+.sessao-login .conteudo .lado.ativo .form{
+    display: flex;
+}
+.sessao-login .conteudo .lado.ativo .btn-mudar{
+    display: none;
+}
+.sessao-login .conteudo .lado .form .icone-perfil{
+    width: 82px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #000;
+    align-self: center;
+}
+.sessao-login .conteudo .lado input{
+    margin-bottom: 12px;
+    padding: 12px;
+    color: #000;
+}
+.sessao-login .conteudo .lado input:focus{
+    outline: 1px solid #106C41;
+}
+.sessao-login .conteudo .lado button{
+    padding: 12px;
+}
+.sessao-login .conteudo .lado:not(.ativo){
+    background-color: #a5a5a5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+}
+.sessao-login .conteudo .lado:not(.ativo) button{
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    background: #d9d9d9;
+    padding: 12px;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #7c7c7c;
+    outline: 2px solid #000;
+}
+.sessao-login .conteudo .lado:not(.ativo) button:hover{
+    background-color: #a5a5a5;
+}
