@@ -14,6 +14,10 @@ function mudarFormulario(id) {
     });
 }
 
+function editarFotoPerfil(){
+    alert('editar')
+}
+
 function entrar(emailVar, senhaVar) {
     console.log(emailVar, senhaVar);
     if (emailVar == "" || senhaVar == "") {
