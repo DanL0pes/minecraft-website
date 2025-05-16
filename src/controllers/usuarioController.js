@@ -20,8 +20,8 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
                         res.json({
                             id: resultadoAutenticar[0].id,
-                            nome: resultadoAutenticar[0].nome,
                             foto: resultadoAutenticar[0].foto,
+                            nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
                             motivo_acesso: resultadoAutenticar[0].motivo_acesso
@@ -45,10 +45,11 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var foto = req.body.fotoServer;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var motivo_acesso = req.body.idEmpresaVincularServer;
+    var motivo_acesso = req.body.motivoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -62,7 +63,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, foto, email, senha, motivo_acesso)
+        usuarioModel.cadastrar(foto, nome, email, senha, motivo_acesso)
             .then(
                 function (resultado) {
                     res.json(resultado);

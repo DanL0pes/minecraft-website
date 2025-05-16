@@ -221,7 +221,7 @@
 }
 .sessao-vantagens .container .conteudo .cards .card img{
     width: 62px;
-    height: 66px;
+    height: 64px;
     padding: 8px;
 }
 .sessao-vantagens .container .conteudo .cards .card .texto{
@@ -244,21 +244,32 @@
     margin: 0;
     color: #FFF;
 }
+.sessao-vantagens .container .conteudo .texto{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
 .sessao-vantagens .container .conteudo .image{
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 150px;
 }
 .sessao-vantagens .container .conteudo .image .gif{
-    margin-bottom: -25%;
+    position: relative;
+    bottom: -15%;
     width: 50%;
+    max-width: 100px;
     z-index: 1;
 }
 .sessao-vantagens .container .conteudo .image .imagem{
-    width: 80%;
-    min-width: 180px;
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
 }
 
 
