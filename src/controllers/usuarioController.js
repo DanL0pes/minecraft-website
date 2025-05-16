@@ -43,6 +43,9 @@ function autenticar(req, res) {
 
 }
 
+const multer = require('multer');
+const upload = multer({ dest: `../../public/assets/uploads/usuario-perfil/  ` });
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var foto = req.body.fotoServer;

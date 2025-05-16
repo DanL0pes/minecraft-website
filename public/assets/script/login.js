@@ -14,10 +14,6 @@ function mudarFormulario(id) {
     });
 }
 
-function editarFotoPerfil(){
-    alert('editar')
-}
-
 function entrar(emailVar, senhaVar) {
     console.log(emailVar, senhaVar);
     if (emailVar == "" || senhaVar == "") {
@@ -77,4 +73,17 @@ function entrar(emailVar, senhaVar) {
 
 function sumirMensagem() {
     cardErro.style.display = "none"
+}
+
+let fotoPerfil;
+function editarFotoPerfil(fotoFile, fotoPreview){
+    alert('editar')
+    const novoNome = `user-${Date.now() * (Math.round(Math.random() * 1E9))}.${fotoFile.type.substring((fotoFile.type.indexOf('/')+1), (fotoFile.type.length))}`;
+    fotoPerfil = new File([fotoFile], novoNome, { type: fotoFile.type });
+    fotoPreview.src = (URL.createObjectURL(fotoFile));
+    console.log(fotoPerfil); 
+}
+
+
+function cadastrar(){
 }

@@ -49,7 +49,10 @@
                 </div>
                 <div class="lado" id="cadastro">
                     <div id="cadastro_form" class="form">
-                        <button class="icone-perfil material-symbols-outlined" onclick="editarFotoPerfil()"><img src="./assets/images/craftingtable.webp" alt=""></button>
+                        <label for="ipt_foto" class="icone-perfil material-symbols-outlined">
+                            <img src="./assets/images/craftingtable.webp" id="icone_perfil" alt="">
+                        </label>
+                        <input type="file" id="ipt_foto" style="display: none;" onchange="editarFotoPerfil(ipt_foto.files[0], icone_perfil)">
                         <label for="ipt_nome">Nome:</label>
                         <input type="text" id="ipt_nome" placeholder="Digite seu nome">
                         <label for="ipt_email">Email:</label>
@@ -58,7 +61,7 @@
                         <input type="password" id="ipt_senha" placeholder="Digite sua senha">
                         <label for="ipt_senha_confirm">Confirmar Senha:</label>
                         <input type="password" id="ipt_senha_cofirm" placeholder="Digite sua senha">
-                        <button class="btn-green pixel-border" onclick="entrar(ipt_email.value, ipt_senha.value)">Cadastrar</button>
+                        <button class="btn-green pixel-border" onclick="cadastrar(ipt_foto, ipt_nome.value, ipt_email.value, ipt_senha.value)">Cadastrar</button>
                     </div>
                     <div id="nao_possui_login" class="btn-mudar">
                         <p>Ainda não possui uma conta? Faça o cadastro :)</p>
