@@ -36,11 +36,11 @@
                 <div class="lado ativo" id="login">
                     <div id="login_form" class="form">
                         <p>Entre e sua conta para desbloquear o acesso a nossos cursos e forúm :)</p>
-                        <label for="ipt_email">Email:</label>
-                        <input type="text" id="ipt_email" placeholder="Digite seu email">
-                        <label for="ipt_senha">Senha:</label>
-                        <input type="password" id="ipt_senha" placeholder="Digite sua senha">
-                        <button class="btn-green pixel-border" onclick="entrar(ipt_email.value, ipt_senha.value)">Login</button>
+                        <label for="ipt_email_login">Email:</label>
+                        <input type="text" id="ipt_email_login" placeholder="Digite seu email">
+                        <label for="ipt_senha_login">Senha:</label>
+                        <input type="password" id="ipt_senha_login" placeholder="Digite sua senha">
+                        <button class="btn-green pixel-border" onclick="entrar(ipt_email_login.value, ipt_senha_login.value)">Login</button>
                     </div>
                     <div id="possui_login" class="btn-mudar">
                         <p>Já possui uma conta?</p>
@@ -60,8 +60,8 @@
                         <label for="ipt_senha">Senha:</label>
                         <input type="password" id="ipt_senha" placeholder="Digite sua senha">
                         <label for="ipt_senha_confirm">Confirmar Senha:</label>
-                        <input type="password" id="ipt_senha_cofirm" placeholder="Digite sua senha">
-                        <button class="btn-green pixel-border" onclick="cadastrar(ipt_foto, ipt_nome.value, ipt_email.value, ipt_senha.value)">Cadastrar</button>
+                        <input type="password" id="ipt_senha_confirm" placeholder="Digite sua senha">
+                        <button class="btn-green pixel-border" onclick="cadastrar(ipt_nome.value, ipt_email.value, ipt_senha.value, ipt_senha_confirm.value)">Cadastrar</button>
                     </div>
                     <div id="nao_possui_login" class="btn-mudar">
                         <p>Ainda não possui uma conta? Faça o cadastro :)</p>

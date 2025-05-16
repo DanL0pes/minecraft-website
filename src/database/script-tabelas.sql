@@ -6,15 +6,15 @@
 comandos para mysql server
 */
 
-CREATE DATABASE creeper_guide;
+create database CreeperGuide;
 
-USE creeper_guide;
+use CreeperGuide;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	foto VARCHAR,
-	nome VARCHAR(60),
-	email VARCHAR(80),
-	senha VARCHAR(60),
-	motivoCadastro VARCHAR(80),
+create table usuario(
+	id int not null primary key auto_increment,
+    foto varchar(200),
+    nome varchar(80) not null,
+    email varchar(100) not null,
+    senha varchar(50) not null,
+    motivo_acesso varchar(70) not null 
 );

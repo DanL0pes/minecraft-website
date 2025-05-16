@@ -43,12 +43,46 @@ function autenticar(req, res) {
 
 }
 
+
 const multer = require('multer');
-const upload = multer({ dest: `../../public/assets/uploads/usuario-perfil/  ` });
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../../public/assets/images/usuario-perfil'));
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    const ext = path.extname(file.originalname);
+    cb(null, path.basename(file.originalname, ext) + '-' + uniqueSuffix + ext);
+  }
+});
+
+const upload = multer({ storage , limits: {fileSize: 5 * 1024 * 1024}});
+
+function uploadFoto(req, res) {
+    upload.single('fotoPerfil')(req, res, function (err) {
+      if (err instanceof multer.MulterError) {
+        if (err.code === 'LIMIT_FILE_SIZE') {
+          return res.status(413).json({ erro: 'Imagem excede o tamanho máximo permitido (5MB).' });
+        }
+        return res.status(400).json({ erro: 'Erro no upload: ' + err.message });
+      } else if (err) {
+        console.error(err);
+        return res.status(500).json({ erro: 'Erro interno ao fazer upload da imagem.' });
+      }
+  
+      const caminhoImagem = `/assets/images/usuario-perfil/${req.file.filename}`;
+      return res.status(200).json({
+        mensagem: "Upload realizado com sucesso.",
+        caminho: caminhoImagem
+      });
+    });
+  }
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var foto = req.body.fotoServer;
+    var foto = `./assets/uploads/usuario-perfil/${req.body.fotoServer}`;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -62,29 +96,30 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (motivo_acesso == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
+        res.status(400).send("Seu motivo está undefined!");
     } else {
-
+        
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(foto, nome, email, senha, motivo_acesso)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
                 }
             );
+        }
     }
-}
-
-module.exports = {
-    autenticar,
-    cadastrar
-}
+    
+    module.exports = {
+        autenticar,
+        cadastrar,
+        uploadFoto
+    }
