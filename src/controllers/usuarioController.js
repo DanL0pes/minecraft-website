@@ -82,7 +82,7 @@ function uploadFoto(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var foto = `./assets/uploads/usuario-perfil/${req.body.fotoServer}`;
+    var foto = `/assets/uploads/usuario-perfil/${req.body.fotoServer}`;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
