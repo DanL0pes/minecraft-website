@@ -86,6 +86,7 @@
     margin-bottom: 12px;
     padding: 12px;
     color: #000;
+    cursor: text;
 }
 .sessao-login .conteudo .lado input:focus{
     outline: 1px solid #106C41;

@@ -1,5 +1,6 @@
 .sessao-dashboard .container {
-    background-image: url(../images/dirt_background.webp);
+    background-image: url(../images/bg-dash.avif);
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
@@ -10,7 +11,7 @@
     display: flex;
     transition: .3s;
 }
-.sessao-dashboard .container .sidebar .conteudo{
+.sessao-dashboard .container .sidebar .conteudo-sidebar{
     padding: 20px;
     flex:1;
     display: flex;
@@ -26,14 +27,14 @@
     background-size: 50px;
     background-repeat: no-repeat;
 }
-.sessao-dashboard .sidebar .conteudo ul{
+.sessao-dashboard .sidebar .conteudo-sidebar ul{
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-.sessao-dashboard .sidebar .conteudo .link{
+.sessao-dashboard .sidebar .conteudo-sidebar .link{
     display: flex;
     align-items: center;
     gap: 16px;
@@ -41,20 +42,25 @@
     text-decoration: none;
     color: #000;
 }
-.sessao-dashboard .sidebar .conteudo .link.logout{
+.sessao-dashboard .sidebar .conteudo-sidebar .link.logout{
     color: #FFF;
+    border: 4px solid transparent;
 }
-.sessao-dashboard .sidebar .conteudo ul .link{
+.sessao-dashboard .sidebar .conteudo-sidebar .link.logout:hover{
+    background: #cf3d3d;
+    border-color: #ee4e4e #5a1919 #5a1919 #5a1919;
+}
+.sessao-dashboard .sidebar .conteudo-sidebar ul .link{
     color: black;
     background: #d9d9d9;
     border: 4px solid;
     border-color: #d9d9d9;
     border-color: #FFF #565656 #565656 #FFF;
 }
-.sessao-dashboard .sidebar .conteudo ul .link:hover{
+.sessao-dashboard .sidebar .conteudo-sidebar ul .link:hover{
     background: #928f8f;
 }
-.sessao-dashboard .sidebar .conteudo ul .link.ativo{
+.sessao-dashboard .sidebar .conteudo-sidebar ul .link.ativo{
     color: #FFF;
     background: #008B45;
     border: 4px solid;
@@ -82,15 +88,53 @@
 .sessao-dashboard .container .conteudo{
     flex: 1;
     display: flex;
+    flex-direction: column;
+    backdrop-filter: brightness(0.5);
 }
 .sessao-dashboard .container .conteudo .topBar{
-    background-color: #949393;
+    background-color: #d9d9d9;
     height: 72px;
     width: 100%;
     padding: 0 52px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.sessao-dashboard .container .conteudo .topBar #info-usuario{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.sessao-dashboard .container .conteudo .topBar #info_usuario #rank_usuario{
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    color: #FFF;
+}
+.sessao-dashboard .container .conteudo .topBar #info_usuario #rank_usuario.novato{
+    background-color: #db9a21;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
+}
+.sessao-dashboard .container .conteudo .topBar #info_usuario #rank_usuario.experiente{
+    background-color: #b9db21;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
+}
+.sessao-dashboard .container .conteudo .topBar #info_usuario #rank_usuario.mestre{
+    background-color: #21db84;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
 }
 .sessao-dashboard .container .conteudo .topBar .foto-perfil{
     position: relative;
@@ -107,6 +151,7 @@
     outline: 2px solid #106C41;
 }
 .sessao-dashboard .container .conteudo .topBar .foto-perfil .config{
+    z-index: 10;
     position: absolute;
     top: 100%;
     left: 50%;
@@ -139,4 +184,11 @@
     border: 4px solid;
     border-color: #4CB45D #106C41 #106C41 #106C41;
     outline: 2px solid #000;
+}
+.sessao-dashboard .container .conteudo .container-inicio{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 52px;
+    box-sizing: border-box;
 }

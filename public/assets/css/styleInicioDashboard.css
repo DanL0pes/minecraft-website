@@ -1,0 +1,190 @@
+.sessao-dashboard .container .conteudo .container-inicio .cards{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.sessao-dashboard .container .conteudo .container-inicio .cards .card{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.sessao-dashboard .container .conteudo .container-inicio .cards .card .titulo{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sessao-dashboard .container .conteudo .container-inicio .cards .card .card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+.sessao-dashboard .container .conteudo .container-inicio .cards .card.cursos{
+    background-color: #d9d9d9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    padding: 12px;
+}
+.sessao-dashboard .container .conteudo .container-inicio .cards .card .card-body.progresso{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    overflow-y: auto;
+    flex: 1;
+}
+.sessao-dashboard .card .card-body.progresso .curso{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #838383;
+    overflow: hidden;
+    background-color: #FFF;
+}	
+.sessao-dashboard .card .card-body.progresso .curso .curso-nome{
+    flex: 1;
+    background-image: url('../images/bg-home.jpg');
+    background-size: cover;
+    display: flex;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-nome h3{
+    color: #FFF;
+    text-shadow: #000 2px 2px;
+    backdrop-filter: blur(4px) brightness(0.5);
+    margin: 0;
+    padding: 24px 12px 12px 12px;
+    border-radius: 6px;
+    width: 100%;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso{
+    padding: 0 12px 12px 12px;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso p{
+    margin: 4px 0 0 0;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso .continuar{
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso .continuar p{
+    font-size: 0.75em;
+}
+
+/* CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso #progresso-curso-bin{
+    display: block;
+    width: 100%;
+    height: 8px;
+    background-color: #000;
+    border-radius: 8px;
+    border: 2px solid #000;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-progresso #progresso-curso-bin::after{
+    content: '';
+    display: block;
+    width: 70%;
+    height: 8px;
+    background-color: #008B45;
+    border-radius: 12px;
+}
+/* FIM DO CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
+
+.sessao-dashboard .card .card-body .kpi{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    padding: 12px;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item h3{
+    margin: 0;
+    width: fit-content;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item p{
+    margin: 0;
+    font-size: 1.5em;
+    align-self: center;
+    z-index: 1;
+    margin-bottom: -4px;
+    margin-right: 24px;
+    align-self: flex-start;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item #xp{
+    color: #7BFA24;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item #rank.novato{
+    color: #db9a21;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item #rank.mestre{
+    color: #21db84;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.51px -1.5px 0 #000;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item #rank.experiente{
+   color: #b9db21;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.51px -1.5px 0 #000;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item #progresso{
+    color: #db9a21;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
+}
+.sessao-dashboard .card .card-body .kpi .kpi-item img{
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+.sessao-dashboard .card .card-body .btn-jogodiario{
+    flex: 1;
+    background-color: #212121;
+    border: 4px #545658 solid;
+    color: #FFF;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sessao-dashboard .card .card-body .btn-jogodiario h1{
+    color: #F0F35C;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.sessao-dashboard .card .card-body .btn-jogodiario:hover{
+    background-color: #3e3f41;
+}
