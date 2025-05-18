@@ -115,3 +115,60 @@
 .sessao-login .conteudo .lado:not(.ativo) button:hover{
     background-color: #a5a5a5;
 }
+
+.modal#modalResultado{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    background-color: #000000AA;
+    display: none;
+}
+.modal#modalResultado .cardModalResultado{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF;
+}
+
+/* .modal#modalResultado .cardModalResultado#error{
+    background: #f03e3e;
+    color: #FFF;
+    border: 4px solid;
+    border-color: #df6060 #bd1212 #bd1212 #df6060;
+}
+.modal#modalResultado .cardModalResultado#sucess{
+    background: #61aa25;
+    border: 4px solid;
+    border-color: #a1ec63 #468116 #468116 #a1ec63;
+    color: #FFF;
+}
+.modal#modalResultado .cardModalResultado#warn{
+    background: #ddb943;
+    border: 4px solid;
+    border-color: #f3d266 #9e7f1a #9e7f1a #f3d266;
+    color: #FFF;
+} */
+.modal#modalResultado .cardModalResultado .modal-icon{
+    font-size: 3em;
+    border-radius: 50%;
+    background: #FFF;
+}
+.modal#modalResultado .cardModalResultado#error .modal-icon{
+    color: #FF0000;
+    outline: 2px solid #FF0000;
+}
+.modal#modalResultado .cardModalResultado#sucess .modal-icon{
+    color: #61aa25;
+    outline: 2px solid #61aa25;
+}
+.modal#modalResultado .cardModalResultado#warn .modal-icon{
+    color: #ddb943;
+    outline: 2px solid #ddb943;
+}
+.modal#modalResultado .cardModalResultado button{
+    padding: 6px 24px;
+}

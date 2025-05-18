@@ -24,7 +24,8 @@ function autenticar(req, res) {
                             nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
-                            motivo_acesso: resultadoAutenticar[0].motivo_acesso
+                            motivo_acesso: resultadoAutenticar[0].motivo_acesso,
+                            xp: resultadoAutenticar[0].xp
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -52,9 +53,8 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, '../../public/assets/images/usuario-perfil'));
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     const ext = path.extname(file.originalname);
-    cb(null, path.basename(file.originalname, ext) + '-' + uniqueSuffix + ext);
+    cb(null, path.basename(file.originalname, ext) + ext);
   }
 });
 
@@ -82,7 +82,7 @@ function uploadFoto(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var foto = `/assets/uploads/usuario-perfil/${req.body.fotoServer}`;
+    var foto = `/assets/images/usuario-perfil/${req.body.fotoServer}`;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;

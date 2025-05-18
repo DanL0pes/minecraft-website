@@ -51,8 +51,9 @@ function entrar(emailVar, senhaVar) {
                 sessionStorage.FOTO_USUARIO = json.foto;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
-                alert("Login realizado com sucesso!");
-                window.location = "home.html";
+                sessionStorage.XP_USUARIO = json.xp;
+                abrirModal('sucess', 'Login realizado com sucesso!')
+                window.location = "/dashboardUsuario/dashboard.html";
 
             });
 
@@ -62,6 +63,7 @@ function entrar(emailVar, senhaVar) {
 
             resposta.text().then(texto => {
                 console.error(texto);
+                abrirModal('error', texto)
             });
         }
 
@@ -79,15 +81,45 @@ function sumirMensagem() {
 let fotoPerfil;
 let nomeFotoPerfil = '';
 function editarFotoPerfil(fotoFile, fotoPreview) {
-    alert('editar')
+    if(fotoFile == null){
+        abrirModal('warn', 'Selecione uma foto.');
+        return;
+    }
     const novoNome = `user-${Date.now() * (Math.round(Math.random() * 1E9))}.${fotoFile.type.substring((fotoFile.type.indexOf('/') + 1), (fotoFile.type.length))}`;
     fotoPerfil = new File([fotoFile], novoNome, { type: fotoFile.type });
     fotoPreview.src = (URL.createObjectURL(fotoFile));
     console.log(fotoPerfil);
     nomeFotoPerfil = novoNome;
     console.log(nomeFotoPerfil);
+    abrirModal('sucess', 'Foto alterada!')
 }
 
+modalResultado = document.getElementById('modalResultado');
+cardResultado = document.querySelector('.cardModalResultado');
+modalIcon = document.querySelector('#modal-icon');
+modalTitulo = document.querySelector('#modal-titulo');
+modalDesc = document.querySelector('#modal-descricao');
+function abrirModal(tipo, desc){
+    cardResultado.id = tipo;
+    if(tipo == 'warn'){
+        modalTitulo.innerHTML = 'Atenção';
+        modalIcon.innerHTML = 'exclamation';
+    } else if(tipo == 'error'){
+        modalTitulo.innerHTML = 'Erro';
+        modalIcon.innerHTML = 'error';
+    } else if(tipo == 'sucess'){
+        modalTitulo.innerHTML = 'Sucesso';
+        modalIcon.innerHTML = 'check';
+    }
+    modalDesc.innerHTML = desc;
+    modalResultado.style.display = 'flex';
+}
+function fecharModal(){
+    cardResultado.id = '';
+    modalTitulo.innerHTML = '';
+    modalDesc.innerHTML = '';
+    modalResultado.style.display = 'none';
+}
 
 function cadastrar(nomeVar, emailVar, senhaVar, confirmacaoSenhaVar) {
     var motivoVar = 'Circuito';
@@ -99,40 +131,27 @@ function cadastrar(nomeVar, emailVar, senhaVar, confirmacaoSenhaVar) {
         senhaVar == "" ||
         confirmacaoSenhaVar == ""
     ) {
+        abrirModal('warn', 'Preencha todos os campos!');
         return false;
-    } else {
-        setInterval(sumirMensagem, 5000);
-    }
+    } 
 
     if (nomeVar.length < 1) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "Nome inválido, no minímo 2 caracteres";
-        finalizarAguardar();
+        abrirModal('warn', 'Nome inválido, no minímo 2 caracteres');
         return false;
     }
 
     if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "Email inválido";
-        finalizarAguardar();
+        abrirModal('warn', 'Email inválido, coloque um email válido.');
         return false;
     }
 
     if (senhaVar.length < 7) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "Senha inválida, no minimo 7 caracteres";
-        finalizarAguardar();
+        abrirModal('warn', 'Senha inválida, no minimo 7 caracteres');
         return false;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "Senhas nao sao iguais";
-        finalizarAguardar();
+        abrirModal('warn', 'Senhas não correspondentes.');
         return false;
     }
 
@@ -180,21 +199,15 @@ function cadastrar(nomeVar, emailVar, senhaVar, confirmacaoSenhaVar) {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML =
-                    "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    mudarFormulario('login');
-                }, "2000");
+                abrirModal('sucess', 'Cadastro realizado com sucesso! Redirecionando para tela de Login...');
+                mudarFormulario('login');
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
         })
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            abrirModal('error', resposta);
         });
 
     return false;

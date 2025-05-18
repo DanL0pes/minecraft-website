@@ -16,5 +16,6 @@ create table usuario(
     nome varchar(80) not null,
     email varchar(100) not null,
     senha varchar(50) not null,
-    motivo_acesso varchar(70) not null 
+    motivo_acesso varchar(70) not null,
+    xp int not null
 );
