@@ -13,7 +13,9 @@ b_xp = document.getElementById('xp');
 
 if (email != null && nome != null) {
     b_nome_usuario.innerHTML = nome;
-    b_xp.innerHTML = xp;
+    if(b_xp !=undefined){
+        b_xp.innerHTML = xp;
+    }
     b_foto_usuario.src = `..${foto}`;
     if(xp <= 500){
         rank = 'Novato';
@@ -24,10 +26,12 @@ if (email != null && nome != null) {
     }
     b_rank_usuario.innerHTML = rank;
     b_rank_usuario.classList.add(rank.toLowerCase());
-    b_rank.innerHTML = rank;
-    b_rank.classList.add(rank.toLowerCase());
+    if(b_rank != undefined){
+        b_rank.innerHTML = rank;
+        b_rank.classList.add(rank.toLowerCase());
+    }
 } else {
-    window.location = "../login.html";
+    // window.location = "../login.html";
 }
 
 
