@@ -6,6 +6,7 @@
 comandos para mysql server
 */
 
+
 create database CreeperGuide;
 
 use CreeperGuide;
@@ -18,4 +19,24 @@ create table usuario(
     senha varchar(50) not null,
     motivo_acesso varchar(70) not null,
     xp int not null
+);
+
+create table pergunta(
+	id int not null,
+	fkusuario int not null,
+    titulo varchar(70) not null,
+    descricao varchar(200) not null,
+    data_post datetime default current_timestamp,
+    estado varchar(30) not null default 'ativo',
+    constraint usuario_pergunta foreign key(fkusuario) references usuario(id),
+    primary key(id, fkusuario)
+);
+
+create table resposta(
+	fkpergunta int not null,
+    fkusuario int not null,
+    id int not null,
+    descricao varchar(200) not null,
+    constraint usuario_pergunta_resposta foreign key(fkusuario, fkpergunta) references pergunta(fkusuario, id),
+    primary key (fkpergunta, fkusuario, id)
 );
