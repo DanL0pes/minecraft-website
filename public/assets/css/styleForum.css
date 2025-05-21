@@ -1,0 +1,158 @@
+.container-inicio{
+    overflow: hidden;
+    flex-direction: column;
+}
+.container-inicio .perguntas_container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.container-inicio .perguntas_container .pergunta{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    color: black;
+    background: #d9d9d9;
+    border: 4px solid;
+    border-color: #d9d9d9;
+    border-color: #FFF #565656 #565656 #FFF;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info img{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #565656;
+    outline: 2px solid #008B45;
+    object-fit: cover;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info p span{
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    color: #FFF;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info .novato{
+    background-color: #db9a21;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info .experiente{
+    background-color: #b9db21;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
+}
+.container-inicio .perguntas_container .pergunta .usuario_info .mestre{
+    background-color: #21db84;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000;
+}
+.container-inicio .perguntas_container .pergunta .titulo_pergunta{
+    margin: 12px 0;
+}
+.container-inicio .perguntas_container .pergunta .desc_pergunta{
+    margin: 0;
+    margin-bottom: 12px;
+}
+.container-inicio .perguntas_container .pergunta .btn_ver_comentarios{
+    background: transparent;
+    border: none;
+    border-top: 1px solid #000;
+    padding: 12px;
+}
+.container-inicio .perguntas_container .pergunta .btn_ver_comentarios:hover{
+    background: rgba(0,0,0,0.2);
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container{
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 220px;
+    overflow-y: auto;
+    background-color: #212121;
+    border: 4px #545658 solid;
+    color: #FFF;
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container .comentario{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 12px 24px;
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container .comentario .usuario_info img{
+    width: 30px;
+    height: 30px;
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container .input_comentario{
+    position: sticky;
+    bottom: 0;
+    background-color: #212121;
+    outline: 4px #545658 solid;
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container .input_comentario input{
+    color: #FFF;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+.container-inicio .perguntas_container .pergunta .comentarios_container .input_comentario button{
+    color: black;
+    background: #d9d9d9;
+    border: 4px solid;
+    border-color: #d9d9d9;
+    border-color: #FFF #565656 #565656 #FFF;
+}
+.ipt_enviar{
+    width: 100%;
+    display: flex;
+}
+.ipt_enviar input{
+    width: 100%;
+    padding: 12px;
+}
+.ipt_enviar button{
+    outline: none;
+}
+.container-inicio .btn_fazer_pergunta{
+    font-size: 1em;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal .conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #FFF;
+    padding: 24px;
+}
+.modal .conteudo input, textarea{
+    padding: 12px;
+}
+.modal .conteudo textarea{
+    width: 420px;
+    height: 92px;
+    resize: none;
+}

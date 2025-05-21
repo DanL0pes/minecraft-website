@@ -8,6 +8,7 @@
     background-color: #3a3a3a;
     height: calc(100vh);
     position: sticky;
+    top: 0;
     display: flex;
     transition: .3s;
 }
@@ -87,11 +88,14 @@
 }
 .sessao-dashboard .container .conteudo{
     flex: 1;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     backdrop-filter: brightness(0.5);
 }
 .sessao-dashboard .container .conteudo .topBar{
+    position: sticky;
+    top: 0;
     background-color: #d9d9d9;
     height: 72px;
     width: 100%;
@@ -186,7 +190,7 @@
     outline: 2px solid #000;
 }
 .sessao-dashboard .container .conteudo .container-inicio{
-    flex: 1;
+    height: calc(100vh - 72px);
     display: flex;
     flex-direction: column;
     padding: 24px 52px;

@@ -37,8 +37,18 @@
     outline: 2px solid #000;
     text-shadow: #000 2px 2px;
 }
-.btn-green:hover {
-  	background-color: #0e5e36;
+.btn-green:hover, .btn-red:hover {
+    filter: brightness(0.8);
+}
+.btn-red{
+    padding: 6px 24px;
+    outline: 2px solid #000;
+    text-shadow: #000 2px 2px;
+    color: #FFF;
+    text-decoration: none;
+    background: #cf3d3d;
+    border: 4px solid;
+    border-color: #ee4e4e #5a1919 #5a1919 #5a1919;
 }
 
 .pixel-border{
