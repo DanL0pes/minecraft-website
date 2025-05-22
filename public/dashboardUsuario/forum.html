@@ -46,29 +46,6 @@
                 </div>
                 <div class="container-inicio">
                     <div class="perguntas_container">
-                        <div class="pergunta pixel-border">
-                            <div class="usuario_info">
-                                <img src="../assets/images/usuario-perfil/default.png" alt="">
-                                <p>nome_usuario <span class="mestre">rank</span></p>
-                            </div>
-                            <h2 class="titulo_pergunta">Titulo</h2>
-                            <p class="desc_pergunta">O que é mais importante, ferro, ouro ou esmeralda?</p>
-                            <button class="btn_ver_comentarios" onclick="abaComentarios()" id="btn_ver_comentarios">Ver comentários</button>
-                            <div class="comentarios_container" id="box_comentarios">
-                                <!-- <p>Ainda não possui comentários... Seja o primeiro :D</p> -->
-                                 <div class="comentario">
-                                    <div class="usuario_info">
-                                        <img src="../assets/images/usuario-perfil/default.png" alt="">
-                                        <p>nome_usuario <span class="mestre">rank</span></p>
-                                    </div>
-                                    <p>Ouro! Com certeza!</p>
-                                 </div>
-                                <div class="ipt_enviar input_comentario">
-                                    <input type="text" placeholder="Comentário...">
-                                    <button class="material-symbols-outlined">send</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <button class="btn-green btn_fazer_pergunta" onclick="fazerPergunta()">Fazer uma pergunta</button>
                 </div>
@@ -78,9 +55,9 @@
     <div class="modal" id="modalPerguntar">
         <div class="conteudo">
             <h1>Faça a pergunta</h1>
-            <input type="text" placeholder="Tópico">
-            <textarea placeholder="Descrição"></textarea>
-            <button class="btn-green">Enviar</button>
+            <input type="text" placeholder="Tópico" id="ipt_titulo">
+            <textarea placeholder="Descrição" id="ipt_descricao"></textarea>
+            <button class="btn-green" onclick="perguntar(ipt_titulo.value, ipt_descricao.value)">Enviar</button>
             <button class="btn-red" onclick="cancelarPergunta()">Cancelar</button>
         </div>
     </div>

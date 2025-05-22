@@ -1,7 +1,7 @@
-var perguntaModel = require("../models/perguntaModal");
+var perguntaModel = require("../models/perguntaModel");
 
 function listar(req, res) {
-    perguntaModel.consultar().then(function (resultado) {
+    perguntaModel.listar().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

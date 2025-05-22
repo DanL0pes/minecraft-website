@@ -1,12 +1,13 @@
-.container-inicio{
-    overflow: hidden;
-    flex-direction: column;
+.sessao-dashboard .container .conteudo .container-inicio{
+    padding: 0px 52px;
 }
 .container-inicio .perguntas_container{
     flex: 1;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    gap: 12px;
+    padding: 24px 8px;
 }
 .container-inicio .perguntas_container .pergunta{
     display: flex;

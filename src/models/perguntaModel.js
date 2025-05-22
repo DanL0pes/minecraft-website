@@ -4,6 +4,7 @@ function listar() {
     console.log("ACESSEI O PERUNTAS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function consultar(): ")
     var instrucaoSql = `
         SELECT 
+            p.id,
             u.foto, 
             u.nome, 
             p.titulo,
@@ -27,7 +28,7 @@ function publicar(titulo, descricao, idUsuario) {
         INSERT INTO pergunta(id, fkusuario, titulo, descricao)
             SELECT pergunta_anterior.novo_id, ${idUsuario}, '${titulo}', '${descricao}'
             FROM (
-                SELECT MAX(id) + 1 AS novo_id FROM pergunta WHERE fkusuario = 1
+                SELECT MAX(id) + 1 AS novo_id FROM pergunta WHERE fkusuario = ${idUsuario}
             ) AS pergunta_anterior;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
