@@ -1,0 +1,173 @@
+.container-inicio{
+    padding: 24px;
+    gap: 12px;
+    overflow-y: auto;
+}
+.cursos_andamento, .todos_cursos{
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+}
+.cursos_andamento .titulo, .todos_cursos .titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+.cursos_andamento .titulo span{
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+}
+.cursos_andamento:has(.cardsContainer.aberto) .titulo span{
+    rotate: 180deg;
+}
+.cursos_andamento h2{
+    margin: 12px;
+}
+.cursos_andamento .cardsContainer, .todos_cursos .cardsContainer{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    transition: .3s height;
+}
+.cursos_andamento .cardsContainer{
+    height: 0px;
+}
+.todos_cursos .cardsContainer{
+    padding: 24px;
+    padding-top: 0;
+}
+.cursos_andamento .cardsContainer.aberto{
+    padding: 24px;
+    padding-top: 0;
+    height: 170px;
+}
+.cursos_andamento .cardsContainer .curso, .todos_cursos .cardsContainer .curso{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #838383;
+    overflow: hidden;
+    background-color: #FFF;
+}	
+.cursos_andamento .cardsContainer .curso .curso-nome, .todos_cursos .cardsContainer .curso .curso-nome{
+    flex: 1;
+    background-image: url('../images/bg-home.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+.cursos_andamento .cardsContainer .curso .curso-nome h3,
+.todos_cursos .cardsContainer .curso .curso-nome h3{
+    height: 100%;
+    color: #FFF;
+    text-shadow: #000 2px 2px;
+    backdrop-filter: blur(4px) brightness(0.5);
+    margin: 0;
+    padding: 24px 12px 12px 12px;
+    border-radius: 6px;
+    width: 100%;
+}
+.cursos_andamento .cardsContainer .curso .curso-progresso,
+.todos_cursos .cardsContainer .curso .curso-desc{
+    padding: 0 12px 12px 12px;
+}
+.cursos_andamento .cardsContainer .curso .curso-progresso p{
+    margin: 4px 0 0 0;
+}
+.cursos_andamento .cardsContainer .curso .curso-progresso .continuar{
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+.cursos_andamento .cardsContainer .curso .curso-progresso .continuar p{
+    font-size: 0.75em;
+}
+/* CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
+.cursos_andamento .cardsContainer .curso .curso-progresso #progresso-curso-bin{
+    display: block;
+    width: 100%;
+    height: 8px;
+    background-color: #000;
+    border-radius: 8px;
+    border: 2px solid #000;
+}
+.cursos_andamento .cardsContainer .curso .curso-progresso #progresso-curso-bin::after{
+    content: '';
+    display: block;
+    width: 70%;
+    height: 8px;
+    background-color: #008B45;
+    border-radius: 12px;
+}
+/* FIM DO CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
+
+.todos_cursos .filter_pesquisa{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.todos_cursos .filter_pesquisa .input_pesquisa{
+    position: relative;
+}
+.todos_cursos .filter_pesquisa .input_pesquisa span{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #868680;
+}
+.todos_cursos .filter_pesquisa .input_pesquisa input,
+.todos_cursos .filter_pesquisa select{
+    padding: 4px;
+    font-size: 1em;
+    background-color: #212121;
+    border: 4px #545658 solid;
+    color: #FFF;
+}
+.todos_cursos .filter_pesquisa .input_pesquisa input{
+    padding-left: 42px;
+}
+.todos_cursos .cardsContainer .curso{
+    width: 320px;
+}
+.todos_cursos .cardsContainer .curso .curso-nome .especificacoes{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6px;
+    padding-bottom: 6px;
+    color: #FFF;
+    text-shadow: #000 2px 2px;
+    backdrop-filter: blur(4px) brightness(0.5);
+}
+.todos_cursos .cardsContainer .curso .curso-nome .especificacoes h4{
+    margin: 0;
+}
+.todos_cursos .cardsContainer .curso .curso-nome .especificacoes .xp{
+    color: #7BFA24;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000;
+}
+.todos_cursos .cardsContainer .curso .curso-desc .competencias{
+    display: flex;
+    padding: 6px 0;
+    gap: 6px;
+}
+.todos_cursos .cardsContainer .curso .curso-desc .competencias .competencia{
+    background-color: #212121;
+    border: 4px #545658 solid;
+    color: #F0F35C;
+    padding: 8px;
+}
+.todos_cursos .cardsContainer .curso .curso-desc button{
+    width: 100%;
+}
