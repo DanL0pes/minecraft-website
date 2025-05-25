@@ -5,9 +5,7 @@ var data = [{ date: '2025-05-12', value: 3 },
     { date: '2025-05-15', value: 10 }
 ];
 
-function criarHeatmap(){
-    container = document.getElementById('cal-heatmap');
-    const cellSize = Math.floor(container.offsetWidth / 80); 
+function criarHeatmap(cellSize){
     const inicioData = new Date();
 
     inicioData.setFullYear(new Date().getFullYear() - 1);
@@ -32,8 +30,27 @@ function criarHeatmap(){
           },
       });
 }
-criarHeatmap();
+
+let container = document.getElementById('cal-heatmap');
+let cellSize = Math.floor(container.offsetWidth / 80); 
+criarHeatmap(cellSize);
 
 window.addEventListener('resize', () => {
-    criarHeatmap();
+    container = document.getElementById('cal-heatmap');
+    cellSize = Math.floor(container.offsetWidth / 80); 
+    criarHeatmap(cellSize);
+})
+
+const sideBar = document.querySelector('.sidebar');
+sideBar.addEventListener('mouseover', () => {
+    setTimeout(() => {
+        container = document.getElementById('cal-heatmap');
+        cellSize = Math.floor(container.offsetWidth / 80); 
+        criarHeatmap(cellSize);
+    },1000)
+})
+sideBar.addEventListener('mouseout', () => {
+    container = document.getElementById('cal-heatmap');
+    cellSize = Math.floor(container.offsetWidth / 80); 
+    criarHeatmap(cellSize);
 })
