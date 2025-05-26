@@ -15,4 +15,32 @@ function listar(req, res) {
     });
 }
 
-module.exports = {listar}
+function comentar(req, res) {
+    var descricao = req.body.comentario;
+    var idUsuario = req.params.idUsuario;
+    var idPergunta = req.params.idPergunta;
+    
+    if (descricao == undefined) {
+        res.status(400).send("A descrição está indefinido!");
+    } else if (idUsuario == undefined) {
+        res.status(403).send("O id do usuário está indefinido!");
+    } else if (idPergunta == undefined) {
+        res.status(403).send("O id da pergunta está indefinido!");
+    } else {
+        repostaModel.comentar(descricao, idUsuario, idPergunta)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar o comentario: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+module.exports = {listar, comentar}
