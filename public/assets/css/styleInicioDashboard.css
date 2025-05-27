@@ -202,8 +202,10 @@
 }
 
 .curso-acompanhamento{
-    padding: 24px 0;
+    padding-top: 12px;
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #d9d9d9;
@@ -211,4 +213,31 @@
     border-color: #FFF #565656 #565656 #FFF;
     box-sizing: border-box;
     margin-top: 12px;
+}
+.curso-acompanhamento h1{
+    align-self: flex-start;
+    margin: 0;
+    margin-bottom: 12px;
+    margin-left: 24px;
+}
+
+.curso-acompanhamento .botoes{
+    display: flex;
+    position: absolute;
+    top: 8px;
+    right: 24px;
+    gap: 12px;
+}
+.curso-acompanhamento .botoes button{
+    background: #212121;
+    border: none;
+    color: #FFF;
+    width: 42px;
+}
+.curso-acompanhamento .botoes button.inverted{
+    rotate: 180deg;
+}
+.curso-acompanhamento .botoes button:hover{
+    scale: 1.125;
+    font-weight: bold;
 }

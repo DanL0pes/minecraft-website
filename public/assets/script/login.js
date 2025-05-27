@@ -52,6 +52,7 @@ function entrar(emailVar, senhaVar) {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
                 sessionStorage.XP_USUARIO = json.xp;
+                sessionStorage.DATA_CADASTRO = json.dt_cadastro;
                 abrirModal('sucess', 'Login realizado com sucesso!')
                 window.location = "/dashboardUsuario/dashboard.html";
 
@@ -192,7 +193,6 @@ function cadastrar(nomeVar, emailVar, senhaVar, confirmacaoSenhaVar) {
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
-            motivoServer: motivoVar,
         }),
     })
         .then(function (resposta) {
