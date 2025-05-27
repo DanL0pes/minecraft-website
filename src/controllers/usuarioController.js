@@ -24,8 +24,8 @@ function autenticar(req, res) {
                             nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
-                            motivo_acesso: resultadoAutenticar[0].motivo_acesso,
-                            xp: resultadoAutenticar[0].xp
+                            xp: resultadoAutenticar[0].xp,
+                            dt_cadastro: resultadoAutenticar[0].dt_cadastro
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -86,7 +86,6 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var motivo_acesso = req.body.motivoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -95,12 +94,10 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (motivo_acesso == undefined) {
-        res.status(400).send("Seu motivo está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(foto, nome, email, senha, motivo_acesso)
+        usuarioModel.cadastrar(foto, nome, email, senha)
         .then(
             function (resultado) {
                 res.json(resultado);
