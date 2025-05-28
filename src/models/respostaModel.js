@@ -14,12 +14,12 @@ function listar(fkPergunta) {
     return database.executar(instrucaoSql);
 }
 
-function comentar(descricao, idUsuario, idPergunta) {
+function comentar(descricao, idUsuario, idPergunta, fkUsuario) {
     console.log("ACESSEI O PERGUyNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function perguntar():");
     
     var instrucaoSql = `
-        INSERT INTO resposta(fkpergunta, id, fkusuario, descricao)
-            SELECT ${idPergunta}, IFNULL(inserir_resposta.novo_id, 1), ${idUsuario}, '${descricao}'
+        INSERT INTO resposta(fkpergunta, id, fkusuario, usuario, descricao)
+            SELECT ${idPergunta}, IFNULL(inserir_resposta.novo_id, 1), ${fkUsuario}, ${idUsuario}, '${descricao}'
             FROM (
                 SELECT MAX(id) + 1 AS novo_id FROM resposta WHERE fkpergunta = ${idPergunta}
             ) AS inserir_resposta;
