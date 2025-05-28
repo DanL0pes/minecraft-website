@@ -17,7 +17,8 @@ function listar(req, res) {
 
 function comentar(req, res) {
     var descricao = req.body.comentario;
-    var idUsuario = req.params.idUsuario;
+    var idUsuario = req.body.idUsuario;
+    var fkUsuario = req.params.fkUsuario;
     var idPergunta = req.params.idPergunta;
     
     if (descricao == undefined) {
@@ -27,7 +28,7 @@ function comentar(req, res) {
     } else if (idPergunta == undefined) {
         res.status(403).send("O id da pergunta está indefinido!");
     } else {
-        repostaModel.comentar(descricao, idUsuario, idPergunta)
+        repostaModel.comentar(descricao, idUsuario, idPergunta, fkUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);

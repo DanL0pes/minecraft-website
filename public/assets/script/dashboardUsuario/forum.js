@@ -1,8 +1,9 @@
 const perguntaContainer = document.querySelector('.perguntas_container');
 let comentariosContainer;
 let btnVerComentarios;
+const idUsuario = sessionStorage.ID_USUARIO;
 
-async function exibirComentarios(fkPergunta) {
+async function exibirComentarios(fkPergunta, fkUsuario) {
     let res = '';
     let resultados = await fetch(`/respostas/listar/${fkPergunta}`).then(async function (resposta) {
         if (resposta.ok) {
@@ -10,7 +11,7 @@ async function exibirComentarios(fkPergunta) {
                 return `<p>Ainda não possui comentários... Seja o primeiro :D</p>
                     <div class="ipt_enviar input_comentario">
                             <input type="text" placeholder="Comentário..." id="ipt_comentario">
-                            <button class="material-symbols-outlined" onclick="comentar(${fkPergunta})">send</button>
+                            <button class="material-symbols-outlined" onclick="comentar(${fkPergunta}, ${fkUsuario})">send</button>
                             </div>
                     </div>`;
             }
@@ -31,7 +32,7 @@ async function exibirComentarios(fkPergunta) {
                 res += `
                     <div class="ipt_enviar input_comentario">
                             <input type="text" placeholder="Comentário..." id="ipt_comentario">
-                            <button class="material-symbols-outlined" onclick="comentar(${fkPergunta})">send</button>
+                            <button class="material-symbols-outlined" onclick="comentar(${fkPergunta}, ${fkUsuario})">send</button>
                             </div>
                     </div>
                 `
@@ -57,7 +58,7 @@ function exibirPerguntas() {
                 for (let i = 0; i < awnser.length; i++) {
                     var publicacao = awnser[i];
 
-                    let comentario = await exibirComentarios(publicacao.id);
+                    let comentario = await exibirComentarios(publicacao.id, publicacao.fkUsuario);
 
                     console.log(publicacao.id);
                     console.log(comentario);
@@ -142,15 +143,16 @@ async function perguntar(){
 async function exibirComentariosPorId(idPergunta){
 }
 
-function comentar(idPergunta){
+function comentar(idPergunta, fkUsuario){
 
     var idUsuario = sessionStorage.ID_USUARIO;
 
     var corpo = {
-        comentario: document.getElementById("ipt_comentario").value
+        comentario: document.getElementById("ipt_comentario").value,
+        idUsuario: idUsuario,
     }
 
-    fetch(`/respostas/comentar/${idUsuario},${idPergunta}`, {
+    fetch(`/respostas/comentar/${fkUsuario},${idPergunta}`, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -162,7 +164,7 @@ function comentar(idPergunta){
 
         if (resposta.ok) {
             fecharPergunta();
-            const comentarios = await exibirComentarios(idPergunta); 
+            const comentarios = await exibirComentarios(idPergunta, fkUsuario); 
             document.getElementById(`box_comentarios_${idPergunta}`).innerHTML = comentarios;
             console.log(comentarios);
         } else if (resposta.status == 404) {

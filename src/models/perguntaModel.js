@@ -5,6 +5,7 @@ function listar() {
     var instrucaoSql = `
         SELECT 
             p.id,
+            p.fkUsuario,
             u.foto, 
             u.nome, 
             p.titulo,
@@ -26,7 +27,7 @@ function publicar(titulo, descricao, idUsuario) {
     
     var instrucaoSql = `
         INSERT INTO pergunta(id, fkusuario, titulo, descricao)
-            SELECT IFNULL(pergunta_anterior.novo_id,1), ${idUsuario}, '${titulo}', '${descricao}'
+            SELECT IFNULL(pergunta_anterior.novo_id,1), ${idUsuario}, '${titulo}', "${descricao}"
             FROM (
                 SELECT MAX(id) + 1 AS novo_id FROM pergunta WHERE fkusuario = ${idUsuario}
             ) AS pergunta_anterior;

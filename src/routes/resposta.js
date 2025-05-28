@@ -7,7 +7,7 @@ router.get("/listar/:idPergunta", function (req, res) {
     repostaController.listar(req, res);
 });
 
-router.post("/comentar/:idUsuario,:idPergunta", function (req, res) {
+router.post("/comentar/:fkUsuario,:idPergunta", function (req, res) {
     repostaController.comentar(req, res);
 });
 

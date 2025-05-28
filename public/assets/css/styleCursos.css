@@ -134,6 +134,11 @@
 .todos_cursos .filter_pesquisa .input_pesquisa input{
     padding-left: 42px;
 }
+.todos_cursos .cardsContainer{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 12px;
+}
 .todos_cursos .cardsContainer .curso{
     width: 320px;
 }
