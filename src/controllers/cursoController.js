@@ -20,7 +20,7 @@ function listar(req, res) {
 
 function listarUsuario(req, res) {
     let usuario = req.params.idUsuario;
-    cursoModel.listarUsuario(idUsuario).then(function (resultado) {
+    cursoModel.listarUsuario(usuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -33,4 +33,4 @@ function listarUsuario(req, res) {
     });
 }
 
-module.exports = {listar}
+module.exports = {listar, listarUsuario}

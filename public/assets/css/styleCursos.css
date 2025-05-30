@@ -37,6 +37,7 @@
 }
 .cursos_andamento .cardsContainer{
     height: 0px;
+    gap: 12px;
 }
 .todos_cursos .cardsContainer{
     padding: 24px;
@@ -83,6 +84,7 @@
 }
 .cursos_andamento .cardsContainer .curso .curso-progresso .continuar{
     display: flex;
+    justify-content: space-between;
     gap: 12px;
     margin-top: 12px;
 }
@@ -90,7 +92,7 @@
     font-size: 0.75em;
 }
 /* CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
-.cursos_andamento .cardsContainer .curso .curso-progresso #progresso-curso-bin{
+.cursos_andamento .cardsContainer .curso .curso-progresso .progresso-curso{
     display: block;
     width: 100%;
     height: 8px;
@@ -98,10 +100,10 @@
     border-radius: 8px;
     border: 2px solid #000;
 }
-.cursos_andamento .cardsContainer .curso .curso-progresso #progresso-curso-bin::after{
+.cursos_andamento .cardsContainer .curso .curso-progresso .progresso-bar{
     content: '';
     display: block;
-    width: 70%;
+    width: 0;
     height: 8px;
     background-color: #008B45;
     border-radius: 12px;

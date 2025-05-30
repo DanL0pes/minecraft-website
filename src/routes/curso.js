@@ -10,7 +10,7 @@ router.get("/listar/", function (req, res) {
     cursoController.listar(req, res);
 });
 router.get("/listar/usuario/:idUsuario", function (req, res) {
-    cursoController.listar(req, res);
+    cursoController.listarUsuario(req, res);
 });
 
 module.exports = router;
