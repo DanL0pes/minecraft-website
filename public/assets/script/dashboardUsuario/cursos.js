@@ -31,7 +31,7 @@ function exibirCursos(pesquisa) {
                                     <h3>${curso.nome}</h3>
                                     <div class="especificacoes">
                                         <h4 class="xp">100xp</h4>
-                                        <h4>${curso.qtde_aulas} Aulas | ${curso.duracao}h</h4>
+                                        <h4>${curso.qtde_aulas} Aulas | ${curso.duracao} min</h4>
                                     </div>
                                 </div>
                                 <div class="curso-desc">
