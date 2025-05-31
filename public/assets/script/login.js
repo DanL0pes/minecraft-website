@@ -12,6 +12,9 @@ function mudarFormulario(id) {
             titulo.innerHTML = textoTitulo;
         }
     });
+    if(id == 'cadastro'){
+        titulo.innerText = 'CRIE SEU PERFIL DE LENDA';
+    }
 }
 
 function entrar(emailVar, senhaVar) {

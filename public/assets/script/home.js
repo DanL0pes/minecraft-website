@@ -20,3 +20,42 @@ function atualizarSeletor(event){
     }
     
 }
+
+
+const titulo = document.querySelector('.titulo-encantado');
+const textoOriginal = titulo.textContent;
+const caracteresAleatorios = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&!';
+let intervalo = null;
+
+titulo.addEventListener('mouseover', (event) => {  
+  let i = 0;
+  
+  clearInterval(intervalo);
+  
+  intervalo = setInterval(() => {
+    titulo.innerText = titulo.innerText.split("").map((letra, index) => {
+        if(index < i) {
+            return textoOriginal[index];
+        }
+        
+        return caracteresAleatorios[Math.floor(Math.random() * caracteresAleatorios.length)]
+    }).join("");
+
+    if(i >= textoOriginal.length){ 
+      clearInterval(intervalo);
+    }
+    
+    i += 1 / 3;
+  }, 30);
+});
+
+const btnIniciarJornada = document.getElementById('btn_iniciar_jornada');
+btnIniciarJornada.addEventListener('mouseenter',() => {
+    btnIniciarJornada.innerText = 'ENTRAR NO DESAFIO!'
+});
+btnIniciarJornada.addEventListener('mouseleave',() => {
+    btnIniciarJornada.innerText = 'INICIAR MINHA JORNADA'
+});
+btnIniciarJornada.addEventListener('click',() => {
+    window.location = './login.html'
+});
