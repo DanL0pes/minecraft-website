@@ -19,9 +19,8 @@
             </a>
             <ul class="links" id="menu">
                 <li class="link"><a class="btn" href="#">Sobre</a></li>
-                <li class="link"><a class="btn" href="game.html">Craftgame</a></li>
                 <li class="link"><a class="btn" href="#">Curiosidades</a></li>
-                <li class="link"><a class="btn" href="login.html">Entrar</a></li>
+                <li class="link"><a class="btn entrar" href="login.html">Entrar</a></li>
             </ul>
             <span class="material-symbols-outlined menu-icon" onclick="abrirMenu(event)">
                 menu
@@ -38,7 +37,7 @@
                 <h2>Aprenda jogando no mundo do Minecraft!</h2>
                 <p>Descubra como o jogo pode ensinar lógica, criatividade, ciência e muito mais.</p>
                 <br>
-                <a href="#" class="btn-green pixel-border">Saiba mais</a>
+                <a href="https://www.minecraft.net/pt-br/about-minecraft" class="btn-green pixel-border">Saiba mais</a>
             </div>
             <div class="lado">
                 <img src="./assets/images/steve.webp">
@@ -54,20 +53,17 @@
             <img src="./assets/images/minecraft-logo.svg" alt="Minecraft" class="logo-mine">
             <div class="conteudo">
                 <div class="seletores">
-                    <div class="seletor ativo pixel-border" id="jogo_seletor" onclick="atualizarSeletor(event)">
-                        <img src="./assets/images/Diamond.png" alt="">
+                    <div class="seletor ativo" id="jogo_seletor" onclick="atualizarSeletor(event)">
                         <p>Jogo</p>
                     </div>
-                    <div class="seletor pixel-border" id="criador_seletor" onclick="atualizarSeletor(event)">
-                        <img src="./assets/images/Redstone.png" alt="">
+                    <div class="seletor" id="criador_seletor" onclick="atualizarSeletor(event)">
                         <p>Criador</p>
                     </div>
-                    <div class="seletor pixel-border" id="updates_seletor" onclick="atualizarSeletor(event)">
-                        <img src="./assets/images/Cobblestone.png" alt="">
+                    <div class="seletor" id="updates_seletor" onclick="atualizarSeletor(event)">
                         <p>Updates</p>
                     </div>
                 </div>
-                <div class="main_seletores pixel-border">
+                <div class="main_seletores">
                     <div class="conteudo_seletor" id="jogo_content">
                         <div class="texto">
                             <p>
@@ -77,22 +73,16 @@
                                 casas simples até castelos gigantes, cidades inteiras ou até máquinas incríveis dentro
                                 do próprio jogo.
                             </p>
-                            <!-- <ul>
+                            <ul>
                                 <li><strong>Desenvolva sua criatividade:</strong> Construa tudo o que imaginar! O
                                     único limite é a sua imaginação.</li>
                                 <li><strong>Aprenda sobre eletrônica e lógica com Redstone:</strong> Crie portas
                                     automáticas, armadilhas, mecanismos, elevadores e até calculadoras! Tudo usando
                                     circuitos dentro do jogo.</li>
-                                <li><strong>Explore conhecimentos com mods:</strong> Com as modificações (mods), você
-                                    pode aprender <strong>química, física, programação, agricultura</strong> e muito
-                                    mais, de forma divertida e prática.</li>
-                                <li><strong>Trabalho em equipe e estratégia:</strong> Em servidores multiplayer, é
-                                    possível aprender a colaborar com amigos, dividir tarefas e criar projetos em grupo.
-                                </li>
                                 <li><strong>Minecraft: Education Edition:</strong> Versão usada em escolas e projetos
                                     educacionais, onde o jogo é usado como ferramenta para ensinar conteúdos escolares
                                     de um jeito envolvente e interativo.</li>
-                            </ul> -->
+                            </ul>
 
                             <a href="#" class="pixel-border">Jogue Agora</a>
                         </div>
@@ -118,27 +108,27 @@
             <div class="conteudo">
                 <div class="texto">
                     <h1>Benefícios</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis inventore qui.</p>
+                    <p>Com o Minecraft é possível obter diversos conhecimentos e aprendizados, por isso ele é além de um jogo.</p>
                     <div class="cards">
                         <div class="card">
-                            <img src="./assets/images/Diamond.png" alt="">
+                            <img src="./assets/images/livro_encantado.webp" alt="">
                             <div class="texto">
                                 <h2>Educativo</h2>
                                 <p>Conhecimento em diversas areas.</p>
                             </div>
                         </div>
                         <div class="card">
-                            <img src="./assets/images/Diamond.png" alt="">
+                            <img src="./assets/images/command_block.webp" alt="">
                             <div class="texto">
-                                <h2>Educativo</h2>
-                                <p>Conhecimento em diversas areas.</p>
+                                <h2>Pensamento Computacional</h2>
+                                <p>Utilize a redstone e entendo os principios da computação.</p>
                             </div>
                         </div>
                         <div class="card">
-                            <img src="./assets/images/Diamond.png" alt="">
+                            <img src="./assets/images/Rainbow_Wool.webp" alt="">
                             <div class="texto">
-                                <h2>Educativo</h2>
-                                <p>Conhecimento em diversas areas.</p>
+                                <h2>Estimule a Criatividade</h2>
+                                <p>Um vasto mundo de exploração e criações.</p>
                             </div>
                         </div>
                     </div>
@@ -149,6 +139,35 @@
                 </div>
             </div>
         </div>
+        <img src="./assets/images/bottom-vantagens.png" alt="" class="bloco-baixo">
+    </section>
+    <section class="sessao-entrar">
+        <img src="./assets/images/bg-entrar.jpeg" alt="" class="video-bg">
+        <div class="container">
+            <div class="conteudo">
+                <h1 class="titulo-encantado">DOMINE OS SEGREDOS DO UNIVERSO MINECRAFT</h1>
+                <div class="cards">
+                    <div class="card">
+                        <img src="./assets/images/Redstone.png" alt="">
+                        <h3>Aprenda com Projetos Reais</h3>
+                        <p>Crie desde fazendas automáticas a sistemas complexos. A teoria vira prática dentro do seu próprio mundo.</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/images/command_block.webp" alt="">
+                        <h3>Programe o Seu Mundo</h3>
+                        <p>Domine os Blocos de Comando para criar suas próprias mecânicas de jogo, missões e sistemas que a Redstone sozinha não consegue alcançar.</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/images/Emerald.webp" alt="">
+                        <h3>Nunca mais Aprenda Sozinho</h3>
+                        <p>Faça parte de uma comunidade de jogadores, tire dúvidas com instrutores e compartilhe suas criações épicas.</p>
+                    </div>
+                </div>
+                <p>De fazendas automáticas a computadores, aprenda a construir o impossível. Nossos guias transformam jogadores em lendas.</p>
+                <button id="btn_iniciar_jornada">INICIAR MINHA JORNADA</button>
+            </div>
+        </div>
+        <img src="./assets/images/bottom-vantagens.png" alt="" class="bloco-baixo">
     </section>
 </body>
 
