@@ -1,5 +1,6 @@
 .sessao-dashboard .container .conteudo .container-inicio{
     padding: 24px 52px;
+    overflow-y: auto;
 }
 .sessao-dashboard .container .conteudo .container-inicio .cards{
     display: flex;
