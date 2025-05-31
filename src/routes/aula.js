@@ -7,4 +7,8 @@ router.get("/retornar/:idCurso,:idAula", function (req, res) {
     aulaController.retornar(req, res);
 });
 
+router.get("/calheatmap/:idUsuario", function (req, res) {
+    aulaController.calendarioAulasFeitas(req, res);
+});
+
 module.exports = router;

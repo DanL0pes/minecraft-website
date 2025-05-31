@@ -12,9 +12,25 @@ function retornar(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os cursos: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os aulas: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
-module.exports = {retornar}
+function calendarioAulasFeitas(req, res){
+    let idUsuario = req.params.idUsuario;
+
+    aulaModel.calendarioAulasFeitas(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os aulas: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+module.exports = {retornar, calendarioAulasFeitas}
