@@ -30,8 +30,13 @@ if (email != null && nome != null) {
         b_rank.innerHTML = rank;
         b_rank.classList.add(rank.toLowerCase());
     }
+
+    document.querySelector('.logout').addEventListener('click', () => {
+        sessionStorage.clear();
+        window.location = '../index.html'
+    })
 } else {
-    // window.location = "../login.html";
+    window.location = "../login.html";
 }
 
 

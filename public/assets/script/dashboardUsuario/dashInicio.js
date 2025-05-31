@@ -39,6 +39,7 @@ function criarHeatmap(cellSize){
             min: inicioData,
             start: new Date(),
             max: new Date(),
+            locale: 'pt'
         },
         range: 12,
         domain: { type: 'month' },
