@@ -38,6 +38,9 @@
 .cursos_andamento .cardsContainer{
     height: 0px;
     gap: 12px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: space-between;
 }
 .todos_cursos .cardsContainer{
     padding: 24px;
@@ -46,7 +49,7 @@
 .cursos_andamento .cardsContainer.aberto{
     padding: 24px;
     padding-top: 0;
-    height: 170px;
+    height: 370px;
 }
 .cursos_andamento .cardsContainer .curso, .todos_cursos .cardsContainer .curso{
     display: flex;
@@ -57,6 +60,9 @@
     overflow: hidden;
     background-color: #FFF;
 }	
+.cursos_andamento .cardsContainer .curso{
+    width: 25vw;
+}
 .cursos_andamento .cardsContainer .curso .curso-nome, .todos_cursos .cardsContainer .curso .curso-nome{
     flex: 1;
     background-image: url('../images/bg-home.jpg');
