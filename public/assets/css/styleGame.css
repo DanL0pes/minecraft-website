@@ -1,34 +1,20 @@
 
-.sessao-crafting-game{
-    background-image: url('../images/dirt_background.webp');
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.sessao-crafting-game .container{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 80%;
-    padding-top: 52px;
-}
-.sessao-crafting-game .game-display{
+ .game-display{
     display: flex;
     flex-direction: row;
     gap: 8px;
+    flex: 1;
+    padding: 12px;
 }
-.sessao-crafting-game .crafting{
+ .crafting{
     background-color: #c6c6c6;
     padding: 24px;
     padding-bottom: 12px;
-    border-radius: 4px;
     width: fit-content;
     display: flex;
     flex-direction: row;
 }
-.sessao-crafting-game .crafting #img_res{
+ .crafting #img_res{
     width: 60px;
     height: 60px;
     align-self: center;
@@ -38,31 +24,31 @@
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
 }
-.sessao-crafting-game .crafting #img_res img{
+ .crafting #img_res img{
     width: 100%;
 }
-.sessao-crafting-game .titulo{
+ .titulo{
     font-family: 'Minecraft';
     color: #5f5d5d;
     margin-top: 0;
     font-weight: 500;
 }
-.sessao-crafting-game .display-craft{
+ .display-craft{
     display: flex;
     flex-direction: column;
     gap: 4px;
     padding: 8px;
 }
-.sessao-crafting-game .display-craft h2{
+ .display-craft h2{
     margin-bottom: 2px;
 }
-.sessao-crafting-game .display-craft .row{
+ .display-craft .row{
     display: flex;
     flex-direction: row;
     gap: 4px;
 }
 
-.sessao-crafting-game .display-craft .row p{
+ .display-craft .row p{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,11 +62,11 @@
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
 }
-.sessao-crafting-game .display-craft .row p img{
+ .display-craft .row p img{
     z-index: 1;
     width: 100%;
 }
-.sessao-crafting-game button{
+ button{
     width: 100%;
     padding: 4px;
     font-family: 'Minecraft';
@@ -88,27 +74,24 @@
     cursor: pointer;
 }
 
-.sessao-crafting-game .items-box{
-    display: grid;
-    max-width: 920px;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 90px));
+ .items-box{
+    display: flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #c6c6c6;
+    background-color: #292626;
     gap: 12px;
     padding: 12px;
     border-radius: 4px;
 }
-.sessao-crafting-game .items-box img{
-    width: 100%;
-    border-left: 4px solid #373737;
-    border-top: 4px solid #373737;
-    border-right: 4px solid #FFF;
-    border-bottom: 4px solid #FFF;
+ .items-box img{
+    width: 90px;
+    border: 8px solid #373737;
+    background-color: #c6c6c6;
 }
 
-.sessao-crafting-game #div_tentativa{
+ #div_tentativa{
     display: none;
     flex-direction: column;
     gap: 12px;
@@ -118,7 +101,8 @@
     overflow-y: auto;
     border-radius: 4px;
 }
-.sessao-crafting-game #div_tentativa .tentativa{
+ #div_tentativa .tentativa{
+    width: 200px;
     padding: 12px;
     background: #e9e9e9;
     border-left: 4px solid #373737;
@@ -127,9 +111,9 @@
     border-bottom: 4px solid #FFF;
     font-family: 'Minecraft';
 }
-.sessao-crafting-game #div_tentativa .tentativa h3{
+ #div_tentativa .tentativa h3{
     margin: 0;
 }
-.sessao-crafting-game #div_tentativa .tentativa p{
+ #div_tentativa .tentativa p{
     margin: 0;
 }
