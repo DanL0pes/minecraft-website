@@ -2,10 +2,11 @@ var cursoModel = require("../models/cursoModel");
 
 function listar(req, res) {
     let pesquisa = req.params.pesquisa;
+    let usuario = req.params.usuario;
     if(pesquisa == undefined){
         pesquisa = '';
     }
-    cursoModel.listar(pesquisa).then(function (resultado) {
+    cursoModel.listar(pesquisa, usuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -33,4 +34,20 @@ function listarUsuario(req, res) {
     });
 }
 
-module.exports = {listar, listarUsuario}
+function inscrever(req, res) {
+    const usuario = req.body.usuarioId;
+    const curso = req.body.cursoId;
+    cursoModel.inscrever(usuario, curso).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os cursos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+module.exports = {listar, listarUsuario, inscrever}

@@ -12,10 +12,11 @@ function abrirCursos(tipo){
 
 const cursosContainer = document.querySelector('#todosCursosContainer')
 function exibirCursos(pesquisa) {
+    usuario = sessionStorage.ID_USUARIO;
     if(pesquisa == undefined){
         pesquisa = '';
     }
-    fetch(`/cursos/listar/${pesquisa}`).then(function (awnser) {
+    fetch(`/cursos/listar/${usuario},${pesquisa}`).then(function (awnser) {
         if (awnser.ok) {
             if (awnser.status == 204) {
                 throw "Nenhum resultado encontrado!!";
@@ -36,7 +37,7 @@ function exibirCursos(pesquisa) {
                                 </div>
                                 <div class="curso-desc">
                                     <p>${curso.tipo}</p>
-                                    <button class="btn-green">Inscrever-se</button>
+                                    <button class="btn-green" onclick="inscreverCurso(${curso.id})">Inscrever-se</button>
                                 </div>
                             </div>
                     `;
@@ -119,3 +120,28 @@ function exibirCursosUsuario() {
     });
 }
 exibirCursosUsuario();
+
+
+function inscreverCurso(curso){
+    const usuario = sessionStorage.ID_USUARIO;
+    fetch(`/cursos/inscrever/usuario`,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            cursoId: curso,
+            usuarioId: usuario
+        })
+    }).then(async function (awnser) {
+        if (awnser.ok) {
+            console.log('Inscrito no curso!');
+            exibirCursosUsuario();
+            exibirCursos();
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (awnser) {
+        console.error(awnser);
+    }); 
+}
