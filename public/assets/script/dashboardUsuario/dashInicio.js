@@ -85,6 +85,15 @@ async function retornarAula(idCurso, idAula){
     return dadosAula[0];
 }
 
+function cardCurso(idCurso){
+    const cardCurso = document.getElementById(`curso_${idCurso}`);
+    if(cardCurso.classList.contains('closed')){
+        cardCurso.classList.remove('closed');
+    } else{
+        cardCurso.classList.add('closed');
+    }
+}
+
 const cursosAndamentoContainer = document.querySelector('#curso_andamento_container')
 function exibirCursosUsuario() {
     const idUsuario = sessionStorage.ID_USUARIO;
@@ -101,9 +110,11 @@ function exibirCursosUsuario() {
                     const aula = await retornarAula(curso.curso_id, curso.aulas_feitas+1);
 
                     cursosAndamentoContainer.innerHTML += `
-                            <div class="curso">
-                                <div class="curso-nome">
-                                    <h3>${curso.nome}</h3>
+                            <div class="curso closed" id="curso_${curso.curso_id}">
+                                <div class="curso-nome" onclick="cardCurso(${curso.curso_id})">
+                                    <h3>${curso.nome}
+                                    <span class="material-symbols-outlined icon-seta">arrow_drop_down</span>
+                                    </h3>
                                 </div>
                                 <div class="curso-progresso">
                                     <span class='progresso-curso'>

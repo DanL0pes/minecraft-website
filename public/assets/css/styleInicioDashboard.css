@@ -4,8 +4,9 @@
 }
 .sessao-dashboard .container .conteudo .container-inicio .cards{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 12px;
+    flex-wrap: wrap;
 }
 .sessao-dashboard .container .conteudo .container-inicio .cards .card{
     flex: 1;
@@ -24,18 +25,29 @@
     gap: 8px;
     height: 100%;
 }
+.sessao-dashboard .container .conteudo .container-inicio .cards .card-header{
+    position: sticky;
+    top: 0;
+    background-color: #d9d9d9;
+    z-index: 10;
+}
 .sessao-dashboard .container .conteudo .container-inicio .cards .card.cursos{
     background-color: #d9d9d9;
+    min-height: 272px;
+    max-height: 272px;
+    overflow-y: auto;
     border: 4px solid;
     border-color: #FFF #565656 #565656 #FFF;
-    padding: 12px;
+    padding: 0 12px 12px 12px;
 }
 .sessao-dashboard .container .conteudo .container-inicio .cards .card .card-body.progresso{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 8px;
-    overflow-y: auto;
     flex: 1;
+}
+.sessao-dashboard .container .conteudo .container-inicio .cards .card .card-body.progresso button{
+    height: 42px;
 }
 .sessao-dashboard .card .card-body.progresso .curso{
     display: flex;
@@ -43,14 +55,25 @@
     gap: 8px;
     border-radius: 8px;
     border: 1px solid #838383;
-    overflow: hidden;
     background-color: #FFF;
 }	
 .sessao-dashboard .card .card-body.progresso .curso .curso-nome{
-    flex: 1;
     background-image: url('../images/bg-home.jpg');
     background-size: cover;
     display: flex;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-nome h3{
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+.sessao-dashboard .card .card-body.progresso .curso.closed .curso-nome h3 span{
+    rotate: 0deg;
+}
+.sessao-dashboard .card .card-body.progresso .curso .curso-nome h3 span{
+    transition: .3s;
+    rotate: 180deg;
 }
 .sessao-dashboard .card .card-body.progresso .curso .curso-nome h3{
     color: #FFF;
@@ -63,6 +86,13 @@
 }
 .sessao-dashboard .card .card-body.progresso .curso .curso-progresso{
     padding: 0 12px 12px 12px;
+    transition: .3s;
+    height: 100%;
+}
+.sessao-dashboard .card .card-body.progresso .curso.closed .curso-progresso{
+    height: 0;
+    padding: 0;
+    overflow: hidden;
 }
 .sessao-dashboard .card .card-body.progresso .curso .curso-progresso p{
     margin: 4px 0 0 0;
@@ -71,12 +101,11 @@
     display: flex;
     gap: 12px;
     margin-top: 12px;
+    justify-content: space-between;
 }
 .sessao-dashboard .card .card-body.progresso .curso .curso-progresso .continuar p{
     font-size: 0.75em;
 }
-
-/* CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
 .sessao-dashboard .card .card-body.progresso .curso .curso-progresso .progresso-curso{
     display: block;
     width: 100%;
@@ -84,6 +113,12 @@
     background-color: #000;
     border-radius: 8px;
     border: 2px solid #000;
+    transform: .3s;
+}
+.sessao-dashboard .card .card-body.progresso .curso.closed .curso-progresso .progresso-curso{
+    height: 0;
+    overflow: hidden;
+    border: none;
 }
 .sessao-dashboard .card .card-body.progresso .curso .curso-progresso .progresso-bar{
     content: '';
@@ -93,7 +128,6 @@
     background-color: #008B45;
     border-radius: 12px;
 }
-/* FIM DO CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
 
 .sessao-dashboard .card .card-body .kpi{
     display: flex;
