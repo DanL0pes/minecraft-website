@@ -54,7 +54,7 @@ function entrar(emailVar, senhaVar) {
                 sessionStorage.FOTO_USUARIO = json.foto;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
-                sessionStorage.XP_USUARIO = json.xp;
+                sessionStorage.SENHA_USUARIO = senhaVar;
                 sessionStorage.DATA_CADASTRO = json.dt_cadastro;
                 abrirModal('sucess', 'Login realizado com sucesso!')
                 window.location = "/dashboardUsuario/dashboard.html";

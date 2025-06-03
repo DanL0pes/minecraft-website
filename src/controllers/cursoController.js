@@ -34,6 +34,21 @@ function listarUsuario(req, res) {
     });
 }
 
+function listarCursosConcluidos(req, res) {
+    let usuario = req.params.idUsuario;
+    cursoModel.listarCursosConcluidos(usuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os cursos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function retornar(req, res) {
     let curso = req.params.idCurso;
     cursoModel.retornar(curso).then(function (resultado) {
@@ -67,7 +82,7 @@ function inscrever(req, res) {
 
 function finalizar(req, res) {
     idUsuario = req.params.idUsuario;
-    idCurso = req.params.idUsuario;
+    idCurso = req.params.idCurso;
     cursoModel.finalizar(idUsuario, idCurso).then(function (resultado) {
         if (resultado) {
             res.status(200).json(resultado);
@@ -79,4 +94,4 @@ function finalizar(req, res) {
     });
 }
 
-module.exports = {listar, listarUsuario, retornar, inscrever, finalizar}
+module.exports = {listar, listarUsuario, retornar, inscrever, finalizar, listarCursosConcluidos}

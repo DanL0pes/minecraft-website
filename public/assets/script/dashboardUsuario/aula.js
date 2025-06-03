@@ -46,11 +46,27 @@ async function pegarAula(){
 }
 pegarAula();
 
-function concluirAula(){
+async function concluirAula(){
     let proxAula = 'proxima';
     if(qtdeAulas == idAula){
         proxAula = 'ultima-aula';
     }
+    await fetch(`/aulas/concluir/${idCurso},${idAula}`,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: idUsuario
+        })
+    }).then(async function (awnser) {
+        if (awnser.ok) {
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (awnser) {
+        console.error(awnser);
+    });
     modal(`Aula ${idAula} Concluída!`, 'Obrigado por fazer o curso!', proxAula);
 }
 
@@ -64,12 +80,10 @@ function modal(titulo, desc, proximaAula){
     modalAcao_desc.innerText = desc;
     if(proximaAula == 'proxima'){
         modalAcao_container.innerHTML = `
-                    <button class="btn-red" onclick="fecharModal()">Voltar</button>
                     <button class="btn-green" onclick="proxAula()">Próx. Aula</button>
             `
     } else if(proximaAula == 'ultima-aula'){
         modalAcao_container.innerHTML = `
-                    <button class="btn-red" onclick="fecharModal()">Voltar</button>
                     <button class="btn-green" onclick="finalizarCurso()">Finalizar Curso</button>
             `
     } else if(proximaAula == 'concluido'){
@@ -86,41 +100,24 @@ function fecharModal(){
 }
 
 function concluir(){
-    window.location = './dashboard.html'
+    window.location = './dashboard.html';
 }
 
 async function proxAula(){
-    await fetch(`/aulas/concluir/${idCurso},${idAula}`,{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            idUsuario: idUsuario
-        })
-    }).then(async function (awnser) {
-        if (awnser.ok) {
-        } else {
-            throw ('Houve um erro na API!');
-        }
-    }).catch(function (awnser) {
-        console.error(awnser);
-    });    
-
     sessionStorage.ID_CURSO = idCurso;
     sessionStorage.ID_AULA = Number(idAula)+1;
     window.location.reload();    
 }
 
 function finalizarCurso(){
-    fetch(`/cursos/finalizar/${idUsuario},${idCurso}`,{
+    fetch(`/cursos/finalizar/${idUsuario},${idCurso}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
-        }
-    }).then(async function (awnser) {
+        }}).then(async function (awnser) {
         if (awnser.ok) {
             modal(`Curso Concluído!`, 'Parabéns pela sua conclusão!!', 'concluido');
+            console.log(awnser)
         } else {
             throw ('Houve um erro na API!');
         }

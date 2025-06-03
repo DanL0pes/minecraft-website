@@ -48,7 +48,8 @@
 .cursos_andamento .cardsContainer.aberto{
     padding: 24px;
     padding-top: 0;
-    height: 370px;
+    height: fit-content;
+    max-height: 370px;
 }
 .cursos_andamento .cardsContainer .curso, .todos_cursos .cardsContainer .curso{
     display: flex;

@@ -134,7 +134,7 @@ function exibirCursosUsuario() {
                                                 ${aula.nome}
                                             </p>
                                         </div>
-                                        <button class="btn-green" onclick="fazerAula(${curso.curso_id}, ${aula.id})">Continuar</button>
+                                        <button class="btn-green" onclick="fazerAula(${curso.curso_id}, ${curso.aulas_feitas+1})">Continuar</button>
                                     </div>
                                 </div>
                             </div>
