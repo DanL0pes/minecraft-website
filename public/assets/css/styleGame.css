@@ -1,20 +1,50 @@
+.container-inicio{
+    display: flex;
+    flex-direction: row !important;
+    gap: 12px;
+    flex-wrap: nowrap;
+    padding: 12px;
+}
 
- .game-display{
+.interface{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+.interface #titulo{
+    margin: 8px;
+    align-self: center;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.interface #titulo button{
+    width: 52px;
+    color: #FFF;
+    background-color: #373737;
+}
+.game-display {
     display: flex;
     flex-direction: row;
     gap: 8px;
-    flex: 1;
-    padding: 12px;
 }
- .crafting{
+
+
+.crafting {
     background-color: #c6c6c6;
     padding: 24px;
     padding-bottom: 12px;
     width: fit-content;
     display: flex;
     flex-direction: row;
+    height: 368px;
+    box-sizing: border-box;
 }
- .crafting #img_res{
+
+.crafting #img_res {
     width: 60px;
     height: 60px;
     align-self: center;
@@ -24,31 +54,36 @@
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
 }
- .crafting #img_res img{
+
+.crafting #img_res img {
     width: 100%;
 }
- .titulo{
+
+.titulo {
     font-family: 'Minecraft';
     color: #5f5d5d;
     margin-top: 0;
     font-weight: 500;
 }
- .display-craft{
+
+.display-craft {
     display: flex;
     flex-direction: column;
     gap: 4px;
     padding: 8px;
 }
- .display-craft h2{
+
+.display-craft h2 {
     margin-bottom: 2px;
 }
- .display-craft .row{
+
+.display-craft .row {
     display: flex;
     flex-direction: row;
     gap: 4px;
 }
 
- .display-craft .row p{
+.display-craft .row p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,11 +97,13 @@
     border-right: 4px solid #FFF;
     border-bottom: 4px solid #FFF;
 }
- .display-craft .row p img{
+
+.display-craft .row p img {
     z-index: 1;
     width: 100%;
 }
- button{
+
+button {
     width: 100%;
     padding: 4px;
     font-family: 'Minecraft';
@@ -74,46 +111,196 @@
     cursor: pointer;
 }
 
- .items-box{
+.items-box {
     display: flex;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    background-color: #292626;
-    gap: 12px;
-    padding: 12px;
-    border-radius: 4px;
-}
- .items-box img{
-    width: 90px;
-    border: 8px solid #373737;
     background-color: #c6c6c6;
+    gap: 12px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 0;
+    padding: 12px;
 }
 
- #div_tentativa{
-    display: none;
+.items-box img {
+    width: 52px;
+    border: 2px solid #373737;
+    background-color: #f1d0a5;
+}
+
+.tentativas {
+    display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: space-between;
+    height: 368px;
     background: #c6c6c6;
     padding: 12px;
-    max-height: 328px;
-    overflow-y: auto;
-    border-radius: 4px;
+    box-sizing: border-box;
+    gap: 12px;
 }
- #div_tentativa .tentativa{
-    width: 200px;
+
+.tentativa {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    background: #292828bd;
+    color: #FFF;
     padding: 12px;
-    background: #e9e9e9;
-    border-left: 4px solid #373737;
-    border-top: 4px solid #373737;
-    border-right: 4px solid #FFF;
-    border-bottom: 4px solid #FFF;
-    font-family: 'Minecraft';
+    max-height: 368px;
+    overflow-y: auto;
 }
- #div_tentativa .tentativa h3{
+
+.tentativa .descricao_tentativa {
+    height: 0px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.tentativa:hover .descricao_tentativa {
+    height: 82px;
+}
+
+.graficos {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+.graficos #titulo-top3{
+    margin: 0;
+    color: #FFF;
+    align-self: center;
+}
+.graficos .ranking{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+}
+.graficos .ranking .icone{
+    width: 40%;
+    margin-top: -24px;
+    border-radius: 50%;
+    background-color: #FFF;
+    border: 4px solid;
+}
+.graficos .ranking .top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #373737;
+    gap: 6px;
+    max-width: 172px;
+}
+.graficos .ranking .top.primeiro{
+    margin-top: 0px;
+    background-color: #ffda0a;
+    border: 4px solid #ca9400;
+    color: #000;
+}
+.graficos .ranking .top.primeiro .icone{
+    border-color: #ca9400;
+}
+.graficos .ranking .top.segundo {
+    margin-top: 24px;
+    background-color: #e0d3d3;
+    border: 4px solid #615b5b;
+}
+.graficos .ranking .top.segundo .icone{
+    border-color: #615b5b;
+}
+.graficos .ranking .top.terceiro {
+    color: #000;
+    background-color: #bd8341;
+    border: 4px solid #834e00;
+    margin-top: 42px;
+}
+.graficos .ranking .top.terceiro .icone{
+    border-color: #834e00;
+}
+.graficos .ranking .top h3,
+.graficos .ranking .top h2{
     margin: 0;
 }
- #div_tentativa .tentativa p{
+.graficos .ranking .top h2{
+    margin-bottom: 12px;
+}
+.graficos .ranking .top .pos{
+    position: absolute;
+    width: 38px;
+    margin-bottom: -24px;
+    border: 2px solid #ebd15f;
+    background-color: #7e3d11;
+    left: 6px;
+    top: -24px;
+}
+.graficos #titulo-estatistica{
+    margin-bottom: 0;
+    margin-top: auto;
+    color: #FFF;
+    align-self: center;
+}
+.graficos .kpi{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    gap: 12px;
+}
+.graficos .kpi .kpi-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border: 4px solid;
+    border-color: #FFF #565656 #565656 #FFF;
+    padding: 12px;
+}
+.graficos .kpi .kpi-item h3{
     margin: 0;
+    width: fit-content;
+}
+.graficos .kpi .kpi-item p{
+    margin: 0;
+    font-size: 1.5em;
+    align-self: center;
+    z-index: 1;
+    margin-bottom: -4px;
+    margin-right: 24px;
+    align-self: flex-start;
+}
+.graficos .kpi .kpi-item img{
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+.graficos .kpi .kpi-item #acerto{
+    color: #7BFA24;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
+}
+.graficos .kpi .kpi-item #erro{
+    color: #f04646;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
+}
+.graficos .kpi .kpi-item #jogo{
+    color: #db9a21;
+    text-shadow:
+        1.5px 1.5px 0 #000,
+        -1.5px 1.5px 0 #000,
+        -1.5px -1.5px 0 #000,
+        1.5px -1.5px 0 #000;
 }

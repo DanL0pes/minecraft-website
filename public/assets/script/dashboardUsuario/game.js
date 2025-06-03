@@ -27,13 +27,8 @@ function limparItem(event) {
 
 // Check Resposta
 function check() {
-    if (contagem == 1) {
-        div_tentativa.style.display = "flex";
-    }
-
     const corErradoCraft = '#ec7c7c';
     const corCertoCraft = '#81e9b0';
-    let corretoFrase = '';
     let qtdeCorreto = 0;
 
     if (estado == 'fim') {
@@ -96,24 +91,20 @@ function check() {
     }
 
     if (qtdeCorreto == 9) {
-        corretoFrase = `<b>Crafting Correto!</b>`
+        document.getElementById(`div_tentativa_${contagem}`).style.backgroundColor = '#0b7a26';
         img_res.style.backgroundColor = '#81e9b0';
+    } else if(qtdeCorreto > 0){
+        document.getElementById(`div_tentativa_${contagem}`).style.backgroundColor = '#da2222';
     }
 
-    div_tentativa.innerHTML += `
-        <div class='tentativa'>
-            <h3>Tentativa ${contagem}:</h3>
+    document.getElementById(`div_tentativa_${contagem}`).innerHTML += `
+        <div class='descricao_tentativa'>
             <p>Corretos: ${qtdeCorreto}</p>
             <p>Incorretos: ${9 - qtdeCorreto}</p>
-            ${corretoFrase}
         </div>
         `;
     if (contagem == 5 || qtdeCorreto == 9) {
-        div_tentativa.innerHTML += `
-            <div class='tentativa'>
-                <h2>Jogo Finalizado!</h2>
-            </div>
-            `;
+        document.getElementById('btnGame').setAttribute('disabled', "true")
         estado = 'fim';
         img_res.innerHTML = `
             <img src="../assets/images/stone_pickaxe.webp">
@@ -121,6 +112,6 @@ function check() {
         return;
     }
     itemPos = 0;
-
+    console.log(contagem)
     contagem++;
 }
