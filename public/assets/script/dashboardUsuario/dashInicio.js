@@ -1,5 +1,20 @@
+
 const idUsuario = sessionStorage.ID_USUARIO;
 const data_cadastro = sessionStorage.DATA_CADASTRO;
+
+async function cursosConcluido(){
+    let dadosUsuario = await fetch(`/cursos/concluido/${idUsuario}`).then(async function (awnser) {
+        if (awnser.ok) {
+            return awnser.json();
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (awnser) {
+        console.error(awnser);
+    });
+    document.getElementById('progresso').innerText = dadosUsuario[0].cursos_concluido;
+}
+cursosConcluido();
 
 const tooltipOptions = {
     text: function(date, value, dayjsDate) {
