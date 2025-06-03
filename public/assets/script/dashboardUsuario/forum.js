@@ -10,7 +10,7 @@ async function exibirComentarios(fkPergunta, fkUsuario) {
             if (resposta.status == 204) {
                 return `<p>Ainda não possui comentários... Seja o primeiro :D</p>
                     <div class="ipt_enviar input_comentario">
-                            <input type="text" placeholder="Comentário..." id="ipt_comentario">
+                            <input type="text" placeholder="Comentário..." id="ipt_comentario_${fkPergunta}">
                             <button class="material-symbols-outlined" onclick="comentar(${fkPergunta}, ${fkUsuario})">send</button>
                             </div>
                     </div>`;
@@ -31,7 +31,7 @@ async function exibirComentarios(fkPergunta, fkUsuario) {
                 }
                 res += `
                     <div class="ipt_enviar input_comentario">
-                            <input type="text" placeholder="Comentário..." id="ipt_comentario">
+                            <input type="text" placeholder="Comentário..." id="ipt_comentario_${fkPergunta}">
                             <button class="material-symbols-outlined" onclick="comentar(${fkPergunta}, ${fkUsuario})">send</button>
                             </div>
                     </div>
@@ -140,15 +140,18 @@ async function perguntar(){
     return false;
 }
 
-async function exibirComentariosPorId(idPergunta){
-}
-
 function comentar(idPergunta, fkUsuario){
-
+    const comentario = document.getElementById(`ipt_comentario_${idPergunta}`).value;
     var idUsuario = sessionStorage.ID_USUARIO;
 
+    if(comentario == ''){
+        console.log('comentário não pode ser nulo')
+        acionarModalAcao('Preencha o campo Comentário', 'Ao realizar um comentário, não é possível que ele seja nulo!');
+        return;
+    }
+
     var corpo = {
-        comentario: document.getElementById("ipt_comentario").value,
+        comentario: comentario,
         idUsuario: idUsuario,
     }
 
@@ -177,4 +180,19 @@ function comentar(idPergunta, fkUsuario){
     });
 
     return false;
+}
+
+
+const modalAcao = document.getElementById('modalAcao');
+const modalAcao_titulo = document.getElementById('modalAcao_titulo');
+const modalAcao_desc = document.getElementById('modalAcao_desc');
+function acionarModalAcao(titulo, desc) {
+    modalAcao.style.display = 'flex';
+    modalAcao_titulo.innerText = titulo;
+    modalAcao_desc.innerText = desc;
+}
+function fecharModalAcao(){
+    modalAcao.style.display = 'none';
+    modalAcao_titulo.innerText = '';
+    modalAcao_desc.innerText = '';
 }

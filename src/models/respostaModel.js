@@ -7,7 +7,7 @@ function listar(fkPergunta) {
             u.nome,
             r.descricao
         FROM resposta r
-        INNER JOIN usuario u ON u.id = r.fkusuario
+        INNER JOIN usuario u ON u.id = r.usuario
         WHERE fkpergunta = ${fkPergunta};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
