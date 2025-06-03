@@ -94,16 +94,22 @@ function cardCurso(idCurso){
     }
 }
 
+function fazerAula(idCurso, idAula){
+    sessionStorage.ID_CURSO = idCurso;
+    sessionStorage.ID_AULA = idAula;
+    window.location = './aula.html'
+}
+
 const cursosAndamentoContainer = document.querySelector('#curso_andamento_container')
 function exibirCursosUsuario() {
     const idUsuario = sessionStorage.ID_USUARIO;
     fetch(`/cursos/listar/usuario/${idUsuario}`).then(function (awnser) {
         if (awnser.ok) {
             if (awnser.status == 204) {
-                cursosAndamentoContainer.innerHTML = "Nenhum curso em andamento!";
+                cursosAndamentoContainer.innerHTML = "<p class='nenhum_curso'>Nenhum curso em andamento!<p>";
             }
-            cursosAndamentoContainer.innerHTML = '';
             awnser.json().then(async function (awnser) {
+                cursosAndamentoContainer.innerHTML = '';
                 for (let i = 0; i < awnser.length; i++) {
                     const curso = awnser[i];
                     const progresso = curso.aulas_feitas / curso.qtde_aulas * 100
@@ -116,11 +122,11 @@ function exibirCursosUsuario() {
                                     <span class="material-symbols-outlined icon-seta">arrow_drop_down</span>
                                     </h3>
                                 </div>
+                                <span class='progresso-curso'>
+                                    <div class="progresso-bar" id="progresso-curso-${curso.curso_id}"></div>
+                                </span>
+                                <p class="progresso_num">Progresso: ${progresso}%</p>
                                 <div class="curso-progresso">
-                                    <span class='progresso-curso'>
-                                        <div class="progresso-bar" id="progresso-curso-${curso.curso_id}"></div>
-                                    </span>
-                                    <p>Progresso: ${progresso}%</p>
                                     <div class="continuar">
                                         <div>
                                             <p>Aula ${curso.aulas_feitas+1} | ${aula.duracao} min</p>
@@ -128,7 +134,7 @@ function exibirCursosUsuario() {
                                                 ${aula.nome}
                                             </p>
                                         </div>
-                                        <button class="btn-green">Continuar</button>
+                                        <button class="btn-green" onclick="fazerAula(${curso.curso_id}, ${aula.id})">Continuar</button>
                                     </div>
                                 </div>
                             </div>
