@@ -59,7 +59,7 @@ iptPesquisa.addEventListener('change',() => {
 })
 
 async function retornarAula(idCurso, idAula){
-    let dadosAula = await fetch(`/aulas/retornar/${idCurso},${idAula}`).then(async function (awnser) {
+    let dadosAula = await fetch(`/aulas/retornar/${idAula},${idCurso}`).then(async function (awnser) {
         if (awnser.ok) {
             return awnser.json();
         } else {
@@ -103,7 +103,7 @@ function exibirCursosUsuario() {
                                                 ${aula.nome}
                                             </p>
                                         </div>
-                                        <button class="btn-green">Continuar</button>
+                                        <button class="btn-green" onclick="fazerAula(${curso.curso_id}, ${aula.id})">Continuar</button>
                                     </div>
                                 </div>
                             </div>
@@ -144,4 +144,11 @@ function inscreverCurso(curso){
     }).catch(function (awnser) {
         console.error(awnser);
     }); 
+}
+
+
+function fazerAula(idCurso, idAula){
+    sessionStorage.ID_CURSO = idCurso;
+    sessionStorage.ID_AULA = idAula;
+    window.location = './aula.html'
 }

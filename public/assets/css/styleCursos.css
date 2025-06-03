@@ -40,7 +40,6 @@
     gap: 12px;
     flex-wrap: wrap;
     overflow-y: auto;
-    justify-content: space-between;
 }
 .todos_cursos .cardsContainer{
     padding: 24px;
