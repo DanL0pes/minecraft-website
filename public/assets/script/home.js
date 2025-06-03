@@ -27,20 +27,25 @@ const textoOriginal = titulo.textContent;
 const caracteresAleatorios = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&!';
 let intervalo = null;
 
-titulo.addEventListener('mouseover', (event) => {  
+titulo.addEventListener('mouseover', () => {  
   let i = 0;
   
   clearInterval(intervalo);
   
   intervalo = setInterval(() => {
-    titulo.innerText = titulo.innerText.split("").map((letra, index) => {
-        if(index < i) {
-            return textoOriginal[index];
+    let tituloValor = '';
+    vetorTitulo = textoOriginal.split("");
+    vetorNovo = [];
+    for(let j = 0; j < vetorTitulo.length; j++) {
+        if(j < i) {
+            vetorNovo.push(textoOriginal[j]);
+        } else{
+            vetorNovo.push(caracteresAleatorios[Math.floor(Math.random() * caracteresAleatorios.length)])
         }
-        
-        return caracteresAleatorios[Math.floor(Math.random() * caracteresAleatorios.length)]
-    }).join("");
-
+    };
+    tituloValor = vetorNovo.join('');
+    titulo.innerHTML = tituloValor;
+    
     if(i >= textoOriginal.length){ 
       clearInterval(intervalo);
     }
