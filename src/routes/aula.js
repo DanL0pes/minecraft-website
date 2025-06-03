@@ -6,9 +6,11 @@ var aulaController = require("../controllers/aulaController");
 router.get("/retornar/:idCurso,:idAula", function (req, res) {
     aulaController.retornar(req, res);
 });
-
 router.get("/calheatmap/:idUsuario", function (req, res) {
     aulaController.calendarioAulasFeitas(req, res);
+});
+router.post("/concluir/:idCurso,:idAula", function (req, res) {
+    aulaController.concluirAula(req, res);
 });
 
 module.exports = router;

@@ -96,7 +96,6 @@
 .cursos_andamento .cardsContainer .curso .curso-progresso .continuar p{
     font-size: 0.75em;
 }
-/* CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
 .cursos_andamento .cardsContainer .curso .curso-progresso .progresso-curso{
     display: block;
     width: 100%;
@@ -106,14 +105,12 @@
     border: 2px solid #000;
 }
 .cursos_andamento .cardsContainer .curso .curso-progresso .progresso-bar{
-    content: '';
     display: block;
     width: 0;
     height: 8px;
     background-color: #008B45;
     border-radius: 12px;
 }
-/* FIM DO CARD PROGRESSO COM LÓGICA FEITA PELO FRONT */
 
 .todos_cursos .filter_pesquisa{
     display: flex;
