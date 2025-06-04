@@ -4,6 +4,10 @@ const items = []
 let contagem = 1;
 let estado = 'jogando';
 
+const dataAtual = new Date;
+let data_game = document.getElementById('data_game');
+data_game.innerText = dataAtual.getDay() + '/' +("0" + (dataAtual.getMonth() + 1)).slice(-2)+'/'+dataAtual.getFullYear();
+
 const rankContainer = document.getElementById('ranking_container')
 async function ranking(){
     rankContainer.innerHTML = '';

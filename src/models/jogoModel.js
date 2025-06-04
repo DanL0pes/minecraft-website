@@ -9,7 +9,7 @@ function retornar(data) {
         FROM jogo
         INNER JOIN crafting c ON c.id = jogo.fk_crafting_id
             INNER JOIN item ON item.id = c.fk_item
-        WHERE dt_jogo = '2025-06-03';
+        WHERE dt_jogo = '${data}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
