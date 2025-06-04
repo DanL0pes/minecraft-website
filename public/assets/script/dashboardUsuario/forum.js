@@ -19,11 +19,19 @@ async function exibirComentarios(fkPergunta, fkUsuario) {
             await resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
                 for (let i = 0; i < resposta.length; i++) {
-                    console.log(resposta[i]);
+                    let rank;
+                    if (resposta[i].xp <= 500) {
+                        rank = 'Novato';
+                    } else if (resposta[i].xp <= 1000) {
+                        rank = 'Experiente';
+                    } else if (resposta[i].xp > 1000) {
+                        rank = 'Mestre';
+                    }
+
                     res += `<div class="comentario">
                             <div class="usuario_info">
                                 <img src="..${resposta[i].foto}" alt="">
-                                <p>${resposta[i].nome} <span class="mestre">rank</span></p>
+                                <p>${resposta[i].nome} <span class="${rank.toLowerCase()}">${rank}</span></p>
                             </div>
                             <p>${resposta[i].descricao}</p>
                         </div>`;
@@ -57,6 +65,14 @@ function exibirPerguntas() {
                 console.log("Dados recebidos: ", JSON.stringify(awnser));
                 for (let i = 0; i < awnser.length; i++) {
                     var publicacao = awnser[i];
+                    let rank;
+                    if (publicacao.xp <= 500) {
+                        rank = 'Novato';
+                    } else if (publicacao.xp <= 1000) {
+                        rank = 'Experiente';
+                    } else if (publicacao.xp > 1000) {
+                        rank = 'Mestre';
+                    }
 
                     let comentario = await exibirComentarios(publicacao.id, publicacao.fkUsuario);
 
@@ -66,7 +82,7 @@ function exibirPerguntas() {
                     <div class="pergunta pixel-border">
                         <div class="usuario_info">
                         <img src="..${publicacao.foto}" alt="">
-                        <p>${publicacao.nome} <span class="mestre">rank</span></p>
+                        <p>${publicacao.nome} <span class="${rank.toLowerCase()}">${rank}</span></p>
                             </div>
                             <h2 class="titulo_pergunta">${publicacao.titulo}</h2>
                             <p class="desc_pergunta">${publicacao.descricao}</p>

@@ -5,6 +5,7 @@ function listar(fkPergunta) {
     var instrucaoSql = `
         SELECT u.foto,
             u.nome,
+            u.xp,
             r.descricao
         FROM resposta r
         INNER JOIN usuario u ON u.id = r.usuario
