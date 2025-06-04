@@ -17,11 +17,11 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
 var perguntaRouter = require("./src/routes/pergunta");
 var respostaRouter = require("./src/routes/resposta");
 var cursoRouter = require("./src/routes/curso");
 var aulaRouter = require("./src/routes/aula");
+var jogoRouter = require("./src/routes/jogo");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,14 +31,11 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
 app.use("/perguntas", perguntaRouter);
 app.use("/respostas", respostaRouter);
 app.use("/cursos", cursoRouter);
 app.use("/aulas", aulaRouter);
-// app.use("/medidas", medidasRouter);
-// app.use("/aquarios", aquariosRouter);
-// app.use("/empresas", empresasRouter);
+app.use("/jogo", jogoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
